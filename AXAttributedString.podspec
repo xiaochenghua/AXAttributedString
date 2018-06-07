@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "AXAttributedString"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A quick NSAttributedString builder, Use Chain Syntax like Masonry."
-  s.description  = ""
+  # s.description  = ""
   s.homepage     = "https://github.com/arnoldxiao/AXAttributedString"
 
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.author             = { "xiaochenghua" => "arnoldxiao@163.com" }
-  s.social_media_url   = "https://www.linkedin.com/in/%E6%89%BF%E5%8D%8E-%E8%82%96-373b44122/"
+  # s.social_media_url   = "https://www.linkedin.com/in/%E6%89%BF%E5%8D%8E-%E8%82%96-373b44122/"
 
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
