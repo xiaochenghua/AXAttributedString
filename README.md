@@ -3,7 +3,7 @@ AXAttributedString, A quick NSAttributedString builder, Use Chain Syntax like ``
 
 Maybe it can help you simplify the creation of attribute texts.
 
-Deployment by iOS 7.0+, coding with ObjC.
+Deployment by iOS 7.0+, base on ObjC.
 
 ### Installation
 ```
