@@ -1,2 +1,2 @@
 # AXAttributedString
-A quick NSAttributedString builder, Use Chain Syntax likes Masonry.
+A quick NSAttributedString builder, Use Chain Syntax like Masonry.
