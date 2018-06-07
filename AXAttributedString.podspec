@@ -4,8 +4,7 @@ Pod::Spec.new do |s|
   s.name         = "AXAttributedString"
   s.version      = "0.0.1"
   s.summary      = "A quick NSAttributedString builder, Use Chain Syntax like Masonry."
-  s.description  = <<-DESC
-                   DESC
+  s.description  = ""
   s.homepage     = "https://github.com/arnoldxiao/AXAttributedString"
 
 
