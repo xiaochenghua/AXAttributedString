@@ -20,15 +20,15 @@ pod 'AXAttributedString'
 ![ui](https://github.com/arnoldxiao/AXAttributedString/blob/master/code_ui.png?raw=true)
 
 ### Currently Supported Attributed List
-* ```text```, type ```NSString```, required, and must be the first, its length must be greater than 0;
-* ```foregroundColor```, type ```UIColor```, optional;
-* ```backgroundColor```, type ```UIColor```, optional;
-* ```font```, type ```UIFont```, optional;
-* ```underline```, type ```NSUnderlineStyle```, optional;
-* ```underlineColor```, type ```UIColor ```, optional;
-* ```baseline```, type ```CGFloat ```, optional;
-* ```strike```, type ```NSUnderlineStyle ```, optional;
-* ```paragraphStyle```, type ```NSParagraphStyle ```, optional;
+* ```text```, type ```NSString```, required, and must be the first, its length must be greater than 0
+* ```foregroundColor```, type ```UIColor```, optional
+* ```backgroundColor```, type ```UIColor```, optional
+* ```font```, type ```UIFont```, optional
+* ```underline```, type ```NSUnderlineStyle```, optional
+* ```underlineColor```, type ```UIColor ```, optional
+* ```baseline```, type ```CGFloat ```, optional
+* ```strike```, type ```NSUnderlineStyle ```, optional
+* ```paragraphStyle```, type ```NSParagraphStyle ```, optional
 * ```...```
 
 ### Contact me
