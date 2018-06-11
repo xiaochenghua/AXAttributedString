@@ -11,9 +11,9 @@
 @implementation AXAttributedString
 
 + (NSAttributedString *)makeAttributedString:(void (^)(AXAttributedStringMaker * _Nonnull))block {
-    AXAttributedStringMaker *maker = [[AXAttributedStringMaker alloc] init];
-    block(maker);
-    return [maker install];
+    AXAttributedStringMaker *make = [[AXAttributedStringMaker alloc] init];
+    block(make);
+    return [make install];
 }
 
 @end

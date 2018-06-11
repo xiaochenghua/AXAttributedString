@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, strong, readonly) NSMutableArray<NSMutableAttributedString *> *attributedStrings;
-
+ 
 - (AXAttributedStringChain *(^)(UIColor *color))foregroundColor;
 - (AXAttributedStringChain *(^)(UIColor *color))backgroundColor;
 - (AXAttributedStringChain *(^)(UIFont *font))font;
@@ -25,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (AXAttributedStringChain *(^)(NSUnderlineStyle style))strike;
 - (AXAttributedStringChain *(^)(UIColor *color))strikeColor;
 - (AXAttributedStringChain *(^)(NSParagraphStyle *style))paragraphStyle;
+
+- (void)buildSubAttributedString;
 
 @end
 

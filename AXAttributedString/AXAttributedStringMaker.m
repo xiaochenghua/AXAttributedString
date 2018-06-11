@@ -17,22 +17,20 @@
 - (AXAttributedStringChain * (^)(NSString *))text {
     __weak typeof(self) weakSelf = self;
     return ^id(NSString *text) {
-        NSAssert(text.length, @"The text's length must be positive!");
-        
+        NSAssert(text.length, @"The text's length cannot be 0.");
         __strong typeof(self) self = weakSelf;
-        
         self.chain.text = text;
+        [self.chain buildSubAttributedString];
         return self.chain;
     };
 }
 
 - (NSAttributedString *)install {
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] init];
-    
-    for (NSMutableAttributedString *attributedString in self.chain.attributedStrings) {
+    NSArray<NSMutableAttributedString *> *attributedStrings = self.chain.attributedStrings.copy;
+    for (NSMutableAttributedString *attributedString in attributedStrings) {
         [mutableAttributedString appendAttributedString:attributedString.copy];
     }
-    
     return mutableAttributedString.copy;
 }
 

@@ -74,10 +74,9 @@
     return self;
 }
 
-- (void)setText:(NSString *)text {
-    _text = text.copy;
-    
-    self.currentAttributedString = [[NSMutableAttributedString alloc] initWithString:_text];;
+- (void)buildSubAttributedString {
+    if (!self.text) { return; }
+    self.currentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
     [self.attributedStrings addObject:self.currentAttributedString];
 }
 
