@@ -1,5 +1,5 @@
 # AXAttributedString
-AXAttributedString, A quick NSAttributedString builder, Use Chain Syntax like ```Masonry```.
+AXAttributedString, An easy NSAttributedString builder, Use Chain Syntax like ```Masonry```.
 
 Maybe it can help you simplify the creation of attribute texts.
 
