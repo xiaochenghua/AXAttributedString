@@ -10,7 +10,7 @@
 
 @implementation AXAttributedString
 
-+ (NSAttributedString *)makeAttributedString:(void (^)(AXAttributedStringMaker * _Nonnull))block {
++ (NSAttributedString *)makeAttributedString:(void(NS_NOESCAPE ^)(AXAttributedStringMaker * _Nonnull))block {
     AXAttributedStringMaker *make = [[AXAttributedStringMaker alloc] init];
     block(make);
     return [make install];

@@ -9,7 +9,9 @@
 #import "AXAttributedStringMaker.h"
 
 @interface AXAttributedStringMaker ()
+
 @property (nonatomic, strong) AXAttributedStringChain *chain;
+
 @end
 
 @implementation AXAttributedStringMaker
@@ -17,21 +19,22 @@
 - (AXAttributedStringChain * (^)(NSString *))text {
     __weak typeof(self) weakSelf = self;
     return ^id(NSString *text) {
-        NSAssert(text.length, @"The text's length cannot be 0.");
         __strong typeof(self) self = weakSelf;
-        self.chain.text = text;
-        [self.chain buildSubAttributedString];
+        NSAssert([text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length, @"The text's length cannot be 0.");
+        
+        [self.chain setUpSubAttributedStringWithText:text];
         return self.chain;
     };
 }
 
 - (NSAttributedString *)install {
-    NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] init];
-    NSArray<NSMutableAttributedString *> *attributedStrings = self.chain.attributedStrings.copy;
-    for (NSMutableAttributedString *attributedString in attributedStrings) {
-        [mutableAttributedString appendAttributedString:attributedString.copy];
-    }
-    return mutableAttributedString.copy;
+    NSArray<NSMutableAttributedString *> *ass = self.chain.attributedStrings;
+    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] init];
+    
+    [ass enumerateObjectsUsingBlock:^(NSMutableAttributedString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [mas appendAttributedString:obj.copy];
+    }];
+    return mas.copy;
 }
 
 - (AXAttributedStringChain *)chain {
