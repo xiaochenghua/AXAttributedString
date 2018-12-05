@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+/**
+ Macro UIColor with a Hex-number. for example: UIColorFromRGB(0xFFFFFF) is White.
+ */
+#define UIColorFromRGB(rgbValue) \
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0x00FF00) >> 8))/255.0f blue:((float)(rgbValue & 0x0000FF))/255.0f alpha:1.0f]
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AXAttributedStringChain : NSObject
