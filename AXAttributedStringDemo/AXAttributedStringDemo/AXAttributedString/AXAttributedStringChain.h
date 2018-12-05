@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
 /**
  Macro UIColor with a Hex-number. for example: UIColorFromRGB(0xFFFFFF) is White.
  */
