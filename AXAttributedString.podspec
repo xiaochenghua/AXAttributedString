@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "AXAttributedString"
   s.version      = "0.0.8"
-  s.summary      = "A quick NSAttributedString builder, Use Chain Syntax like Masonry."
+  s.summary      = "A easier NSAttributedString builder, Use Chain-syntax like Masonry."
   s.homepage     = "https://github.com/arnoldxiao/AXAttributedString"
 
 
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source_files  = "AXAttributedString/**/*"
+  s.source_files  = "AXAttributedStringDemo/AXAttributedStringDemo/AXAttributedString/**/*"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
