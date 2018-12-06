@@ -3,6 +3,7 @@
 //  AXAttributedString
 //
 //  Created by xiaochenghua on 2018/6/6.
+//  Email: arnoldxiao@163.com
 //  Copyright © 2018 xiaochenghua. All rights reserved.
 //
 
@@ -40,13 +41,13 @@
     };
 }
 
-- (AXAttributedStringChain * _Nonnull (^)(CGFloat))systemFont {
+- (AXAttributedStringChain * _Nonnull (^)(CGFloat))systemFontSize {
     return ^id(CGFloat floating) {
         return [self addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:floating]];
     };
 }
 
-- (AXAttributedStringChain * _Nonnull (^)(NSUnderlineStyle))underline {
+- (AXAttributedStringChain * _Nonnull (^)(NSUnderlineStyle))underlineStyle {
     return ^id(NSUnderlineStyle style) {
         return [self addAttribute:NSUnderlineStyleAttributeName value:@(style)];
     };
@@ -58,19 +59,19 @@
     };
 }
 
-- (AXAttributedStringChain * _Nonnull (^)(CGFloat))baseline {
+- (AXAttributedStringChain * _Nonnull (^)(CGFloat))baselineOffset {
     return ^id(CGFloat offset) {
         return [self addAttribute:NSBaselineOffsetAttributeName value:@(offset)];
     };
 }
 
-- (AXAttributedStringChain * _Nonnull (^)(NSUnderlineStyle))strike {
+- (AXAttributedStringChain * _Nonnull (^)(NSUnderlineStyle))strikethroughStyle {
     return ^id(NSUnderlineStyle style) {
         return [self addAttribute:NSStrikethroughStyleAttributeName value:@(style)];
     };
 }
 
-- (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))strikeColor {
+- (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))strikethroughColor {
     return ^id(UIColor *color) {
         return [self addAttribute:NSStrikethroughColorAttributeName value:color];
     };
@@ -115,7 +116,6 @@
 - (AXAttributedStringChain * _Nonnull (^)(NSInteger))ligature {
     return ^id(NSInteger integer) {
         NSAssert(integer == 1 || integer == 0, @"On iOS, Ligature value must be a number ONE(default) or ZERO.");
-        
         return [self addAttribute:NSLigatureAttributeName value:@(integer)];
     };
 }
@@ -188,7 +188,7 @@
     return _mutableAttributedStrings;
 }
 
-- (NSArray<NSMutableAttributedString *> *)attributedStrings {
+- (NSArray<NSAttributedString *> *)attributedStrings {
     return self.mutableAttributedStrings.copy;
 }
 

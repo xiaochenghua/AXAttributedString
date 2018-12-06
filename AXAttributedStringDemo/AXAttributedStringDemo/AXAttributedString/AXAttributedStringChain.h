@@ -3,6 +3,7 @@
 //  AXAttributedString
 //
 //  Created by xiaochenghua on 2018/6/6.
+//  Email: arnoldxiao@163.com
 //  Copyright © 2018 xiaochenghua. All rights reserved.
 //
 
@@ -10,82 +11,85 @@
 #import <UIKit/UIKit.h>
 
 /**
- Macro UIColor with a Hex-number. for example: UIColorFromRGB(0xFFFFFF) is White.
+ Macro UIColor with a Hex-number. For example: UIColorFromRGB(0xFFFFFF) is White.
  */
 #define UIColorFromRGB(rgbValue) \
-[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0x00FF00) >> 8))/255.0f blue:((float)(rgbValue & 0x0000FF))/255.0f alpha:1.0f]
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f \
+                green:((float)((rgbValue & 0x00FF00) >>  8))/255.0f \
+                 blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0f \
+                alpha:1.0f]
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AXAttributedStringChain : NSObject
 
 /**
- attributedStrings
+ List of Sub-AttributedString
  */
-@property (nonatomic, strong, readonly) NSArray<NSMutableAttributedString *> *attributedStrings;
+@property (nonatomic, strong, readonly) NSArray<NSAttributedString *> *attributedStrings;
 
 /**
- NSForegroundColorAttributeName
+ NSForegroundColorAttributeName, default blackColor
  */
 - (AXAttributedStringChain *(^)(UIColor *color))foregroundColor;
 
 /**
- NSBackgroundColorAttributeName
+ NSBackgroundColorAttributeName, default nil: no background
  */
 - (AXAttributedStringChain *(^)(UIColor *color))backgroundColor;
 
 /**
- NSFontAttributeName, value is a UIFont object.
+ NSFontAttributeName, value is a UIFont object, default Helvetica(Neue) 12
  */
 - (AXAttributedStringChain *(^)(UIFont *font))font;
 
 /**
  NSFontAttributeName, value is float digit.
  */
-- (AXAttributedStringChain *(^)(CGFloat floating))systemFont;
+- (AXAttributedStringChain *(^)(CGFloat floating))systemFontSize;
 
 /**
- NSUnderlineStyleAttributeName
+ NSUnderlineStyleAttributeName, default 0: no underline, NSUnderlineStyleNone
  */
-- (AXAttributedStringChain *(^)(NSUnderlineStyle style))underline;
+- (AXAttributedStringChain *(^)(NSUnderlineStyle style))underlineStyle;
 
 /**
- NSUnderlineColorAttributeName
+ NSUnderlineColorAttributeName, default nil: same as foreground color
  */
 - (AXAttributedStringChain *(^)(UIColor *color))underlineColor;
 
 /**
- NSBaselineOffsetAttributeName
+ NSBaselineOffsetAttributeName, default 0
  */
-- (AXAttributedStringChain *(^)(CGFloat offset))baseline;
+- (AXAttributedStringChain *(^)(CGFloat offset))baselineOffset;
 
 /**
- NSStrikethroughStyleAttributeName
+ NSStrikethroughStyleAttributeName, default 0: no strikethrough, NSUnderlineStyleNone
  */
-- (AXAttributedStringChain *(^)(NSUnderlineStyle style))strike;
+- (AXAttributedStringChain *(^)(NSUnderlineStyle style))strikethroughStyle;
 
 /**
- NSStrikethroughColorAttributeName
+ NSStrikethroughColorAttributeName, default nil: same as foreground color
  */
-- (AXAttributedStringChain *(^)(UIColor *color))strikeColor;
+- (AXAttributedStringChain *(^)(UIColor *color))strikethroughColor;
 
 /**
- NSParagraphStyleAttributeName
+ NSParagraphStyleAttributeName, default defaultParagraphStyle
  */
 - (AXAttributedStringChain *(^)(NSParagraphStyle *style))paragraphStyle;
 
 /**
- NSStrokeColorAttributeName
+ NSStrokeColorAttributeName, default nil: same as foreground color
  */
 - (AXAttributedStringChain *(^)(UIColor *color))strokeColor;
 
 /**
- NSStrokeWidthAttributeName
+ NSStrokeWidthAttributeName, default 0: no stroke
  */
 - (AXAttributedStringChain *(^)(CGFloat width))strokeWidth;
 
 /**
- NSAttachmentAttributeName
+ NSAttachmentAttributeName, default nil
  */
 - (AXAttributedStringChain *(^)(NSTextAttachment *textAttachment))attachment;
 
@@ -100,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AXAttributedStringChain *(^)(NSString *string))linkString;
 
 /**
- NSLigatureAttributeName, default ONE
+ NSLigatureAttributeName, default ONE: default ligatures, ZERO: no ligatures
  */
 - (AXAttributedStringChain *(^)(NSInteger integer))ligature;
 
@@ -110,22 +114,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (AXAttributedStringChain *(^)(CGFloat floating))kern;
 
 /**
- NSShadowAttributeName
+ NSShadowAttributeName, default nil: no shadow
  */
 - (AXAttributedStringChain *(^)(NSShadow *sd))shadow;
 
 /**
- NSTextEffectAttributeName
+ NSTextEffectAttributeName, default nil: no text effect
  */
 - (AXAttributedStringChain *(^)(NSString *text))textEffect;
 
 /**
- NSObliquenessAttributeName, default 0
+ NSObliquenessAttributeName, default 0: no skew
  */
 - (AXAttributedStringChain *(^)(CGFloat floating))obliqueness;
 
 /**
- NSExpansionAttributeName
+ NSExpansionAttributeName, default 0: no expansion
  */
 - (AXAttributedStringChain *(^)(CGFloat floating))expansion;
 
@@ -141,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AXAttributedStringChain *(^)(NSInteger integer))verticalGlyphForm;
 
 /**
- set up sub attribute string, pass a text
+ Set-Up sub attribute string, pass a text
  */
 - (void)setUpSubAttributedStringWithText:(NSString *)text;
 

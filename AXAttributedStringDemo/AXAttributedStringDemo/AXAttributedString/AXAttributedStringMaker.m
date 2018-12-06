@@ -3,6 +3,7 @@
 //  AXAttributedString
 //
 //  Created by xiaochenghua on 2018/6/5.
+//  Email: arnoldxiao@163.com
 //  Copyright © 2018 xiaochenghua. All rights reserved.
 //
 
@@ -20,21 +21,19 @@
     __weak typeof(self) weakSelf = self;
     return ^id(NSString *text) {
         __strong typeof(self) self = weakSelf;
-        NSAssert([text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length, @"The text's length cannot be 0.");
-        
+        NSAssert([text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length, @"The formatted-text's length cannot be 0.");
         [self.chain setUpSubAttributedStringWithText:text];
         return self.chain;
     };
 }
 
 - (NSAttributedString *)install {
-    NSArray<NSMutableAttributedString *> *ass = self.chain.attributedStrings;
-    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] init];
     
-    [ass enumerateObjectsUsingBlock:^(NSMutableAttributedString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [mas appendAttributedString:obj.copy];
+    [self.chain.attributedStrings enumerateObjectsUsingBlock:^(NSAttributedString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [mutableAttributedString appendAttributedString:obj];
     }];
-    return mas.copy;
+    return mutableAttributedString.copy;
 }
 
 - (AXAttributedStringChain *)chain {

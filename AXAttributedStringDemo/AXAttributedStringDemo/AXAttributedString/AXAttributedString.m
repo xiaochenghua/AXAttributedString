@@ -3,6 +3,7 @@
 //  AXAttributedString
 //
 //  Created by xiaochenghua on 2018/6/5.
+//  Email: arnoldxiao@163.com
 //  Copyright © 2018 xiaochenghua. All rights reserved.
 //
 
