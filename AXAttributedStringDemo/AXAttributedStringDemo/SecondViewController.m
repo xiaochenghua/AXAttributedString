@@ -28,20 +28,19 @@
 
 - (UILabel *)attributedStringLabel {
     if (!_attributedStringLabel) {
-        _attributedStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 2 * 10, 500)];
+        _attributedStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 2 * 10, 300)];
         _attributedStringLabel.backgroundColor = UIColor.yellowColor;
         _attributedStringLabel.numberOfLines = 0;
         _attributedStringLabel.attributedText = [AXAttributedString makeAttributedString:^(AXAttributedStringMaker *make) {
             make.text(@"第一段").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
             make.text(@"第二段").font([UIFont systemFontOfSize:14]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-            make.text(@"第三段").foregroundColor(UIColor.orangeColor).font([UIFont boldSystemFontOfSize:20]).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
-            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-            paragraphStyle.lineSpacing = 10;
-            make.text(@"\n").paragraphStyle(paragraphStyle);
-            //  Not allow formatted(remove the first and last empty) string to be empty
-            //  make.text(@"");
+            make.text(@"第三段").foregroundColor(UIColor.orangeColor).systemFontSize(20).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.redColor);
+            make.text(@"\n");   //  line break
             make.text(@"第四段").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:30]).baselineOffset(-15);
             make.text(@"第五段").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(30);
+            
+            //  Not allow formatted(remove the first and last empty) string to be empty
+            //  make.text(@"");
         }];
     }
     return _attributedStringLabel;
