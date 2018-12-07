@@ -10,6 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Macro UIColor with a Hex-number. For example: UIColorFromRGB(0xFFFFFF) is White.
  */
@@ -18,8 +20,6 @@
                 green:((float)((rgbValue & 0x00FF00) >>  8))/255.0f \
                  blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0f \
                 alpha:1.0f]
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface AXAttributedStringChain : NSObject
 
