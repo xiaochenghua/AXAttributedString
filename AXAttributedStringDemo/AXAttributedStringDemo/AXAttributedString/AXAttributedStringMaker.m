@@ -11,6 +11,9 @@
 
 @interface AXAttributedStringMaker ()
 
+/**
+ Owned AXAttributedStringChain object.
+ */
 @property (nonatomic, strong) AXAttributedStringChain *chain;
 
 @end

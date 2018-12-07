@@ -11,10 +11,19 @@
 
 @interface AXAttributedStringChain ()
 
+/**
+ Appended text each time.
+ */
 @property (nonatomic, copy) NSString *text;
 
+/**
+ List of sub attribute strings.
+ */
 @property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mutableAttributedStrings;
 
+/**
+ text + attributes
+ */
 @property (nonatomic, strong) NSMutableAttributedString *subAttributedString;
 
 @end
