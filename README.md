@@ -1,3 +1,8 @@
+![platform](https://img.shields.io/cocoapods/p/AXAttributedString.svg)
+![stars](https://img.shields.io/github/stars/arnoldxiao/AXAttributedString.svg)
+![pod](https://img.shields.io/cocoapods/v/AXAttributedString.svg)
+![license](https://img.shields.io/github/license/arnoldxiao/AXAttributedString.svg)
+
 An easier NSAttributedString builder, Use Chain-syntax like [Masonry](https://github.com/SnapKit/Masonry).
 
 *Support for iOS 7.0+, Base on Objective-C.*
