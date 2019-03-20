@@ -12,21 +12,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol AXViewAttributeTextAssignment <NSObject>
-
+@protocol AXAttributeStringSettingProtocol <NSObject>
 @required
-
 - (void)axa_setAttributedStringUsingBlock:(void(^)(AXAttributedStringMaker *make))block;
-
 @end
 
-@interface UILabel (AXAttributedString) <AXViewAttributeTextAssignment>
+@interface UILabel (AXAttributedString) <AXAttributeStringSettingProtocol>
 @end
 
-@interface UITextField (AXAttributedString) <AXViewAttributeTextAssignment>
+@interface UITextField (AXAttributedString) <AXAttributeStringSettingProtocol>
 @end
 
-@interface UITextView (AXAttributedString) <AXViewAttributeTextAssignment>
+@interface UITextView (AXAttributedString) <AXAttributeStringSettingProtocol>
 @end
 
 @interface AXAttributedString : NSObject

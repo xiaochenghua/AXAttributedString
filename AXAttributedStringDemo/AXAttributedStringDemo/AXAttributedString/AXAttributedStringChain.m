@@ -9,7 +9,9 @@
 
 #import "AXAttributedStringChain.h"
 
-@interface AXAttributedStringChain ()
+@interface AXAttributedStringChain () {
+    NSUInteger _currentTextIndex;
+}
 
 /**
  Appended text each time.
@@ -24,7 +26,9 @@
 /**
  text + attributes
  */
-@property (nonatomic, strong) NSMutableAttributedString *subAttributedString;
+@property (nonatomic, strong) NSMutableAttributedString *segmentAttributedString;
+
+@property (nonatomic, strong) NSMutableDictionary *attributedCacheDictionary;
 
 @end
 
@@ -143,7 +147,7 @@
 
 - (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))textEffect {
     return ^id(NSString *text) {
-        //  Only Supported [NSTextEffectLetterpressStyle] now.
+        //  Only Supported [NSTextEffectLetterpressStyle] Now.
         if (![text isEqualToString:NSTextEffectLetterpressStyle]) {
             text = NSTextEffectLetterpressStyle;
         }
@@ -178,14 +182,25 @@
 #pragma mark - private methods
 
 - (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key value:(id)value {
-    [self.subAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
+    //  缓存key，由索引+文本+属性名组成，确保key不重复，如果重复，说明属性值重新设置
+    NSString *cacheKey = [NSString stringWithFormat:@"%ld_%@_%@", _currentTextIndex, self.text, key];
+    
+    //  取出缓存的属性值
+    id cacheValue = [self.attributedCacheDictionary objectForKey:cacheKey];
+    NSAssert(!cacheValue, @"Repeated setting attribute named [%@].", key);
+    
+    //  缓存属性值
+    [self.attributedCacheDictionary setObject:value forKey:cacheKey];
+    
+    [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
     return self;
 }
 
-- (void)setUpSubAttributedStringWithText:(NSString *)text {
+- (void)setUpSegmentAttributedStringWithText:(NSString *)text {
     self.text = text;
-    self.subAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
-    [self.mutableAttributedStrings addObject:self.subAttributedString];
+    self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    [self.mutableAttributedStrings addObject:self.segmentAttributedString];
+    _currentTextIndex = self.mutableAttributedStrings.count - 1;
 }
 
 #pragma mark - getter
@@ -199,6 +214,13 @@
 
 - (NSArray<NSAttributedString *> *)attributedStrings {
     return self.mutableAttributedStrings.copy;
+}
+
+- (NSMutableDictionary *)attributedCacheDictionary {
+    if (!_attributedCacheDictionary) {
+        _attributedCacheDictionary = [[NSMutableDictionary alloc] init];
+    }
+    return _attributedCacheDictionary;
 }
 
 @end

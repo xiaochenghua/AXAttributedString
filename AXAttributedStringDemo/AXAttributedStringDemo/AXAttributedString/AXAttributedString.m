@@ -9,6 +9,8 @@
 
 #import "AXAttributedString.h"
 
+#pragma mark - UILabel (AXAttributedString)
+
 @implementation UILabel (AXAttributedString)
 
 - (void)axa_setAttributedStringUsingBlock:(void (^)(AXAttributedStringMaker * _Nonnull))block {
@@ -16,6 +18,8 @@
 }
 
 @end
+
+#pragma mark - UITextField (AXAttributedString)
 
 @implementation UITextField (AXAttributedString)
 
@@ -25,6 +29,8 @@
 
 @end
 
+#pragma mark - UITextView (AXAttributedString)
+
 @implementation UITextView (AXAttributedString)
 
 - (void)axa_setAttributedStringUsingBlock:(void (^)(AXAttributedStringMaker * _Nonnull))block {
@@ -33,7 +39,11 @@
 
 @end
 
+#pragma mark - AXAttributedString
+
 @implementation AXAttributedString
+
+#pragma mark - private methods
 
 + (NSAttributedString *)makeAttributedString:(void(NS_NOESCAPE ^)(AXAttributedStringMaker * _Nonnull))block {
     AXAttributedStringMaker *make = [[AXAttributedStringMaker alloc] init];

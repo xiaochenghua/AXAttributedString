@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Macro UIColor with a Hex-number. For example: UIColorFromRGB(0xFFFFFF) is White.
+ Macro UIColor with a hex-number. For example: UIColorFromRGB(0xFFFFFF) means white color.
  */
 #define UIColorFromRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f \
@@ -145,9 +145,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (AXAttributedStringChain *(^)(NSInteger integer))verticalGlyphForm;
 
 /**
- Set-Up sub attribute string, pass a text
+ Set-Up segment attribute string, pass a text
  */
-- (void)setUpSubAttributedStringWithText:(NSString *)text;
+- (void)setUpSegmentAttributedStringWithText:(NSString *)text;
 
 @end
 
