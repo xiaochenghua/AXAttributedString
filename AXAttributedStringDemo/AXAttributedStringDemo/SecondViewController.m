@@ -65,10 +65,28 @@
         _textView.delegate = self;
         [_textView axa_setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
             make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:14]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(20).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.grayColor);
-            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:30]).baselineOffset(-15);
-            make.text(@"Overview").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(30).linkString(@"https://www.baidu.com/");
+            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
+            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
+            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
+            make.text(@"Overview").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://www.baidu.com/");
+            make.text(@"\n\n\n");
+            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
+            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
+            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
+            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
+            make.text(@"Overview").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://www.baidu.com/");
+            make.text(@"\n\n\n");
+            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
+            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
+            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
+            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
+            make.text(@"Overview").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://www.baidu.com/");
+            make.text(@"\n\n\n");
+            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
+            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
+            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
+            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
+            make.text(@"Overview").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://www.baidu.com/");
         }];
     }
     return _textView;
