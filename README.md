@@ -18,21 +18,7 @@ pod 'AXAttributedString'
 3. ```#import <AXAttributedString/AXAttributedString.h>```.
 
 ### Usage
-```objective-c
-[AXAttributedString makeAttributedString:^(AXAttributedStringMaker *make) {
-    make.text(@"第一段").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-    make.text(@"第二段").font([UIFont systemFontOfSize:14]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-    make.text(@"第三段").foregroundColor(UIColor.orangeColor).systemFontSize(20).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.redColor);
-    
-    //  Append string @"\n" means line breaks
-    make.text(@"\n");
-    make.text(@"第四段").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:30]).baselineOffset(-15);
-    make.text(@"第五段").foregroundColor(UIColorFromRGB(0xCC00FF)).systemFontSize(30);
-
-    //  Not allow formatted(remove the first and last empty) string to be empty
-    //  make.text(@"");
-}];
-```
+![Code_Example](https://raw.githubusercontent.com/arnoldxiao/AXAttributedString/master/Code_Example%402x.png)
 
 ![Screenshot_iPhoneSE](https://raw.githubusercontent.com/arnoldxiao/AXAttributedString/master/UI_Screenshot_iPhoneSE%402x.png)
 
