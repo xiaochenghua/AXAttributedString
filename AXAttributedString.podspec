@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "AXAttributedString"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "A easier NSAttributedString builder, Use Chain-syntax like Masonry."
   s.homepage     = "https://github.com/arnoldxiao/AXAttributedString"
 
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.platform     = :ios
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "8.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
