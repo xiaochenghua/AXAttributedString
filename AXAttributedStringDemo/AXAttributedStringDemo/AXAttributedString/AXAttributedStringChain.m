@@ -131,7 +131,7 @@
 
 - (AXAttributedStringChain * _Nonnull (^)(NSInteger))ligature {
     return ^id(NSInteger integer) {
-        NSAssert(integer == 1 || integer == 0, @"On iOS, Ligature value must be a number ONE(default) or ZERO.");
+        NSAssert(integer == 1 || integer == 0, @"Ligature value must be a number ONE(default) or ZERO on iOS.");
         return [self addAttribute:NSLigatureAttributeName value:@(integer)];
     };
 }
@@ -184,27 +184,22 @@
 
 #pragma mark - private methods
 
+/**
+ 缓存key，由索引_文本_属性名组成，确保key不重复，如果重复，说明属性值被重置，断言
+ 添加缓存
+ 设置属性值
+ */
 - (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key value:(id)value {
-    //  缓存key，由索引+文本+属性名组成，确保key不重复，如果重复，说明属性值重新设置
     NSString *cacheKey = [NSString stringWithFormat:@"%ld_%@_%@", _currentTextIndex, self.text, key];
-    
-    //  取出缓存的属性值
     id cacheValue = [self.attributedCacheDictionary objectForKey:cacheKey];
     NSAssert(!cacheValue, @"Repeated setting attribute named [%@].", key);
-    
-    //  缓存属性值
     [self.attributedCacheDictionary setObject:value forKey:cacheKey];
-    
-    //  添加属性值
     [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
     return self;
 }
 
 - (void)setUpSegmentAttributedStringWithText:(NSString *)text {
-    //  重置self.text前先清空缓存
     [self.attributedCacheDictionary removeAllObjects];
-    
-    //  重置self.text
     self.text = text;
     self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
     [self.mutableAttributedStrings addObject:self.segmentAttributedString];
