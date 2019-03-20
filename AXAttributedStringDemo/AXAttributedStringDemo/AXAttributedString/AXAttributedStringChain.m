@@ -28,6 +28,9 @@
  */
 @property (nonatomic, strong) NSMutableAttributedString *segmentAttributedString;
 
+/**
+ 缓存属性设值
+ */
 @property (nonatomic, strong) NSMutableDictionary *attributedCacheDictionary;
 
 @end
@@ -192,11 +195,16 @@
     //  缓存属性值
     [self.attributedCacheDictionary setObject:value forKey:cacheKey];
     
+    //  添加属性值
     [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
     return self;
 }
 
 - (void)setUpSegmentAttributedStringWithText:(NSString *)text {
+    //  重置self.text前先清空缓存
+    [self.attributedCacheDictionary removeAllObjects];
+    
+    //  重置self.text
     self.text = text;
     self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
     [self.mutableAttributedStrings addObject:self.segmentAttributedString];
