@@ -191,8 +191,7 @@
  */
 - (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key value:(id)value {
     NSString *cacheKey = [NSString stringWithFormat:@"%ld_%@_%@", _currentTextIndex, self.text, key];
-    id cacheValue = [self.attributedCacheDictionary objectForKey:cacheKey];
-    NSAssert(!cacheValue, @"Repeated setting attribute named [%@].", key);
+    NSAssert(![self.attributedCacheDictionary objectForKey:cacheKey], @"Repeated setting attribute named [%@].", key);
     [self.attributedCacheDictionary setObject:value forKey:cacheKey];
     [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
     return self;
