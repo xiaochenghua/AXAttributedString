@@ -190,7 +190,7 @@
  设置属性值
  */
 - (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key value:(id)value {
-    NSString *cacheKey = [NSString stringWithFormat:@"%lu_%@_%@", _currentTextIndex, self.text, key];
+    NSString *cacheKey = [NSString stringWithFormat:@"%tu_%@_%@", _currentTextIndex, self.text, key];
     NSAssert(![self.attributedCacheDictionary objectForKey:cacheKey], @"Repeated setting attribute named [%@].", key);
     [self.attributedCacheDictionary setObject:value forKey:cacheKey];
     [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
