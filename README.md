@@ -5,7 +5,7 @@
 
 An easier NSAttributedString builder, Use Chain-syntax like [Masonry](https://github.com/SnapKit/Masonry).
 
-*Support for iOS 7.0+, Base on Objective-C.*
+*Support for iOS 8.0+, Base on Objective-C.*
 
 ### Installation
 ```
