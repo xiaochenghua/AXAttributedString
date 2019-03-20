@@ -9,13 +9,29 @@
 
 #import "AXAttributedStringChain.h"
 
-@interface AXAttributedStringChain ()
+@interface AXAttributedStringChain () {
+    NSUInteger _currentTextIndex;
+}
 
+/**
+ Appended text each time.
+ */
 @property (nonatomic, copy) NSString *text;
 
+/**
+ List of sub attribute strings.
+ */
 @property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mutableAttributedStrings;
 
-@property (nonatomic, strong) NSMutableAttributedString *subAttributedString;
+/**
+ text + attributes
+ */
+@property (nonatomic, strong) NSMutableAttributedString *segmentAttributedString;
+
+/**
+ 缓存属性设值
+ */
+@property (nonatomic, strong) NSMutableDictionary *attributedCacheDictionary;
 
 @end
 
@@ -115,7 +131,7 @@
 
 - (AXAttributedStringChain * _Nonnull (^)(NSInteger))ligature {
     return ^id(NSInteger integer) {
-        NSAssert(integer == 1 || integer == 0, @"On iOS, Ligature value must be a number ONE(default) or ZERO.");
+        NSAssert(integer == 1 || integer == 0, @"Ligature value must be a number ONE(default) or ZERO on iOS.");
         return [self addAttribute:NSLigatureAttributeName value:@(integer)];
     };
 }
@@ -134,7 +150,7 @@
 
 - (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))textEffect {
     return ^id(NSString *text) {
-        //  Only Supported [NSTextEffectLetterpressStyle] now.
+        //  Only Supported [NSTextEffectLetterpressStyle] Now.
         if (![text isEqualToString:NSTextEffectLetterpressStyle]) {
             text = NSTextEffectLetterpressStyle;
         }
@@ -168,15 +184,26 @@
 
 #pragma mark - private methods
 
+/**
+ 缓存key，由索引_文本_属性名组成，确保key不重复，如果重复，说明属性值被重置，断言
+ 添加缓存
+ 设置属性值
+ */
 - (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key value:(id)value {
-    [self.subAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
+    NSString *cacheKey = [NSString stringWithFormat:@"%ld_%@_%@", _currentTextIndex, self.text, key];
+    id cacheValue = [self.attributedCacheDictionary objectForKey:cacheKey];
+    NSAssert(!cacheValue, @"Repeated setting attribute named [%@].", key);
+    [self.attributedCacheDictionary setObject:value forKey:cacheKey];
+    [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
     return self;
 }
 
-- (void)setUpSubAttributedStringWithText:(NSString *)text {
+- (void)setUpSegmentAttributedStringWithText:(NSString *)text {
+    [self.attributedCacheDictionary removeAllObjects];
     self.text = text;
-    self.subAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
-    [self.mutableAttributedStrings addObject:self.subAttributedString];
+    self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    [self.mutableAttributedStrings addObject:self.segmentAttributedString];
+    _currentTextIndex = self.mutableAttributedStrings.count - 1;
 }
 
 #pragma mark - getter
@@ -190,6 +217,13 @@
 
 - (NSArray<NSAttributedString *> *)attributedStrings {
     return self.mutableAttributedStrings.copy;
+}
+
+- (NSMutableDictionary *)attributedCacheDictionary {
+    if (!_attributedCacheDictionary) {
+        _attributedCacheDictionary = [[NSMutableDictionary alloc] init];
+    }
+    return _attributedCacheDictionary;
 }
 
 @end

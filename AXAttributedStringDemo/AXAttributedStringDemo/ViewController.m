@@ -21,12 +21,14 @@
     
     self.view.backgroundColor = UIColor.whiteColor;
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 120, 30)];
-    [btn setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [btn setTitle:@"Click me!" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    [self.view addSubview:({
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 120, 30)];
+        [btn setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [btn setTitle:@"Try click me!" forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn;
+    })];
 }
 
 - (void)pressesBegan:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {

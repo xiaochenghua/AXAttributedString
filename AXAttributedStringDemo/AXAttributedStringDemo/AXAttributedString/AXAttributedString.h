@@ -10,6 +10,22 @@
 #import <Foundation/Foundation.h>
 #import "AXAttributedStringMaker.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol AXAttributeStringSettingProtocol <NSObject>
+@required
+- (void)axa_setAttributedStringUsingBlock:(void(^)(AXAttributedStringMaker *make))block;
+@end
+
+@interface UILabel (AXAttributedString) <AXAttributeStringSettingProtocol>
+@end
+
+@interface UITextField (AXAttributedString) <AXAttributeStringSettingProtocol>
+@end
+
+@interface UITextView (AXAttributedString) <AXAttributeStringSettingProtocol>
+@end
+
 @interface AXAttributedString : NSObject
 
 /**
@@ -18,3 +34,5 @@
 + (NSAttributedString *)makeAttributedString:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -11,18 +11,23 @@
 
 @interface AXAttributedStringMaker ()
 
+/**
+ Owned AXAttributedStringChain object.
+ */
 @property (nonatomic, strong) AXAttributedStringChain *chain;
 
 @end
 
 @implementation AXAttributedStringMaker
 
+#pragma mark - private methods
+
 - (AXAttributedStringChain * (^)(NSString *))text {
     __weak typeof(self) weakSelf = self;
     return ^id(NSString *text) {
         __strong typeof(self) self = weakSelf;
         NSAssert([text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length, @"The formatted-text's length cannot be 0.");
-        [self.chain setUpSubAttributedStringWithText:text];
+        [self.chain setUpSegmentAttributedStringWithText:text];
         return self.chain;
     };
 }
@@ -35,6 +40,8 @@
     }];
     return mutableAttributedString.copy;
 }
+
+#pragma mark - getter
 
 - (AXAttributedStringChain *)chain {
     if (!_chain) {
