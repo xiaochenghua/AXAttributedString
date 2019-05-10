@@ -15,11 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Macro UIColor with a hex-number. For example: UIColorFromRGB(0xFFFFFF) means white color.
  */
-#define UIColorFromRGB(rgbValue) \
+#define AXColorFromRGB(rgbValue) AXColorFromRGBA(rgbValue, 1.0f)
+
+#define AXColorFromRGBA(rgbValue, alphaValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f \
                 green:((float)((rgbValue & 0x00FF00) >>  8))/255.0f \
                  blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0f \
-                alpha:1.0f]
+                alpha:alphaValue]
 
 @interface AXAttributedStringChain : NSObject
 
