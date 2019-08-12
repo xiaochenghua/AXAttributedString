@@ -15,9 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AXAttributedStringMaker : NSObject
 
 /**
- For the given text, Maker needs to be responsible for the first call
+ For the given text
  */
 - (AXAttributedStringChain *(^)(NSString *text))text;
+
+/**
+ For the given htmlText
+ */
+- (AXAttributedStringChain *(^)(NSString *text))htmlText;
 
 /**
  Splice and return the Sub-AttributedString
