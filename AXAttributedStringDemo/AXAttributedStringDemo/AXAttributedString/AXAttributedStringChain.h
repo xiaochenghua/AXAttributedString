@@ -151,6 +151,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setUpSegmentAttributedStringWithText:(NSString *)text;
 
+/**
+ Set-Up segment attribute string, pass a html text
+ */
+- (void)setUpSegmentAttributedStringWithHTMLText:(NSString *)htmlText;
+
 @end
 
 NS_ASSUME_NONNULL_END

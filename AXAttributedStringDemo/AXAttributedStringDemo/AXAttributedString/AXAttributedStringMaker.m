@@ -32,6 +32,16 @@
     };
 }
 
+- (AXAttributedStringChain * (^)(NSString *))htmlText {
+    __weak typeof(self) weakSelf = self;
+    return ^id(NSString *htmlText) {
+        __strong typeof(self) self = weakSelf;
+        NSAssert([htmlText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length, @"The formatted-text's length cannot be 0.");
+        [self.chain setUpSegmentAttributedStringWithHTMLText:htmlText];
+        return self.chain;
+    };
+}
+
 - (NSAttributedString *)install {
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] init];
     

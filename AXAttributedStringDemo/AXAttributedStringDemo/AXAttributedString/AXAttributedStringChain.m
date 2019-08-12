@@ -193,7 +193,7 @@
     NSString *cacheKey = [NSString stringWithFormat:@"%tu_%@_%@", _currentTextIndex, self.text, key];
     NSAssert(![self.attributedCacheDictionary objectForKey:cacheKey], @"Repeated setting attribute named [%@].", key);
     [self.attributedCacheDictionary setObject:value forKey:cacheKey];
-    [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.text.length)];
+    [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.segmentAttributedString.length)];
     return self;
 }
 
@@ -201,6 +201,17 @@
     [self.attributedCacheDictionary removeAllObjects];
     self.text = text;
     self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    [self.mutableAttributedStrings addObject:self.segmentAttributedString];
+    _currentTextIndex = self.mutableAttributedStrings.count - 1;
+}
+
+- (void)setUpSegmentAttributedStringWithHTMLText:(NSString *)htmlText {
+    [self.attributedCacheDictionary removeAllObjects];
+    self.text = htmlText;
+    self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithData:[self.text dataUsingEncoding:NSUnicodeStringEncoding]
+                                                                           options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
+                                                                documentAttributes:NULL
+                                                                             error:nil];
     [self.mutableAttributedStrings addObject:self.segmentAttributedString];
     _currentTextIndex = self.mutableAttributedStrings.count - 1;
 }
