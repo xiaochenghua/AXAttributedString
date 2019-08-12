@@ -23,7 +23,9 @@ pod 'AXAttributedString'
 ![Screenshot_iPhoneSE](https://raw.githubusercontent.com/arnoldxiao/AXAttributedString/master/UI_Screenshot_iPhoneSE%402x.png)
 
 ### Supported attribute list
-* ``` text ```, *Requied, Must be the first, **NOT ALLOW** the empty formatted substring.*
+* ``` text ```, *Must be the first if need, **NOT ALLOW** the empty formatted substring.*
+* ``` htmlText ```, *Must be the first if need, **NOT ALLOW** the empty formatted substring.*
+> ```text``` or ```htmlText``` must be need one.
 * ``` foregroundColor ```
 * ``` backgroundColor ```
 * ``` font ```
