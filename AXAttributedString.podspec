@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "AXAttributedString"
-  s.version      = "0.1.2"
+  s.version      = "0.1.4"
   s.summary      = "An easier NSAttributedString builder, Use Chain-syntax like Masonry."
   s.homepage     = "https://github.com/arnoldxiao/AXAttributedString"
 
