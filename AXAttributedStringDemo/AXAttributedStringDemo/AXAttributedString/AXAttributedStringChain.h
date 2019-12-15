@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
                  blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0f \
                 alpha:alphaValue]
 
+typedef NS_ENUM(NSUInteger, AXAttributedStringTextType) {
+    AXAttributedStringTextTypeNormal,       //  常规文本
+    AXAttributedStringTextTypeHTML          //  HTML字符串
+};
+
 @interface AXAttributedStringChain : NSObject
 
 /**
@@ -147,14 +152,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (AXAttributedStringChain *(^)(NSInteger integer))verticalGlyphForm;
 
 /**
- Set-Up segment attribute string, pass a text
- */
-- (void)setUpSegmentAttributedStringWithText:(NSString *)text;
-
-/**
- Set-Up segment attribute string, pass a html text
- */
-- (void)setUpSegmentAttributedStringWithHTMLText:(NSString *)htmlText;
+Set-Up segment attribute string, pass a text and text type, return self.
+*/
+- (AXAttributedStringChain *)setUpSegmentAttributedStringWithText:(NSString *)text type:(AXAttributedStringTextType)type;
 
 @end
 

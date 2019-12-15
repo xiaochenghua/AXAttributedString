@@ -9,19 +9,12 @@
 
 #import "AXAttributedStringChain.h"
 
-@interface AXAttributedStringChain () {
-    NSUInteger _currentTextIndex;
-}
+@interface AXAttributedStringChain ()
 
 /**
- Appended text each time.
+ segment index.
  */
-@property (nonatomic, copy) NSString *text;
-
-/**
- List of sub attribute strings.
- */
-@property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mutableAttributedStrings;
+@property (nonatomic, assign) NSUInteger segmentIndex;
 
 /**
  text + attributes
@@ -29,9 +22,14 @@
 @property (nonatomic, strong) NSMutableAttributedString *segmentAttributedString;
 
 /**
- 缓存属性设值
+ List of sub attribute strings.
  */
-@property (nonatomic, strong) NSMutableDictionary *attributedCacheDictionary;
+@property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mutableAttributedStrings;
+
+/**
+keys
+*/
+@property (nonatomic, strong) NSMutableArray *keys;
 
 @end
 
@@ -41,110 +39,110 @@
 
 - (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))foregroundColor {
     return ^id(UIColor *color) {
-        return [self addAttribute:NSForegroundColorAttributeName value:color];
+        return [self addAttribute:NSForegroundColorAttributeName object:color];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))backgroundColor {
     return ^id(UIColor *color) {
-        return [self addAttribute:NSBackgroundColorAttributeName value:color];
+        return [self addAttribute:NSBackgroundColorAttributeName object:color];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(UIFont * _Nonnull))font {
     return ^id(UIFont *font) {
-        return [self addAttribute:NSFontAttributeName value:font];
+        return [self addAttribute:NSFontAttributeName object:font];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))systemFontSize {
     return ^id(CGFloat floating) {
-        return [self addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:floating]];
+        return [self addAttribute:NSFontAttributeName object:[UIFont systemFontOfSize:floating]];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSUnderlineStyle))underlineStyle {
     return ^id(NSUnderlineStyle style) {
-        return [self addAttribute:NSUnderlineStyleAttributeName value:@(style)];
+        return [self addAttribute:NSUnderlineStyleAttributeName object:@(style)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))underlineColor {
     return ^id(UIColor *color) {
-        return [self addAttribute:NSUnderlineColorAttributeName value:color];
+        return [self addAttribute:NSUnderlineColorAttributeName object:color];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))baselineOffset {
     return ^id(CGFloat offset) {
-        return [self addAttribute:NSBaselineOffsetAttributeName value:@(offset)];
+        return [self addAttribute:NSBaselineOffsetAttributeName object:@(offset)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSUnderlineStyle))strikethroughStyle {
     return ^id(NSUnderlineStyle style) {
-        return [self addAttribute:NSStrikethroughStyleAttributeName value:@(style)];
+        return [self addAttribute:NSStrikethroughStyleAttributeName object:@(style)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))strikethroughColor {
     return ^id(UIColor *color) {
-        return [self addAttribute:NSStrikethroughColorAttributeName value:color];
+        return [self addAttribute:NSStrikethroughColorAttributeName object:color];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSParagraphStyle * _Nonnull))paragraphStyle {
     return ^id(NSParagraphStyle *style) {
-        return [self addAttribute:NSParagraphStyleAttributeName value:style];
+        return [self addAttribute:NSParagraphStyleAttributeName object:style];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(UIColor * _Nonnull))strokeColor {
     return ^id(UIColor *color) {
-        return [self addAttribute:NSStrokeColorAttributeName value:color];
+        return [self addAttribute:NSStrokeColorAttributeName object:color];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))strokeWidth {
     return ^id(CGFloat width) {
-        return [self addAttribute:NSStrokeWidthAttributeName value:@(width)];
+        return [self addAttribute:NSStrokeWidthAttributeName object:@(width)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSTextAttachment * _Nonnull))attachment {
     return ^id(NSTextAttachment *textAttachment) {
-        return [self addAttribute:NSAttachmentAttributeName value:textAttachment];
+        return [self addAttribute:NSAttachmentAttributeName object:textAttachment];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSURL * _Nonnull))linkUrl {
     return ^id(NSURL *url) {
-        return [self addAttribute:NSLinkAttributeName value:url];
+        return [self addAttribute:NSLinkAttributeName object:url];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))linkString {
     return ^id(NSString *string) {
-        return [self addAttribute:NSLinkAttributeName value:string];
+        return [self addAttribute:NSLinkAttributeName object:string];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSInteger))ligature {
     return ^id(NSInteger integer) {
         NSAssert(integer == 1 || integer == 0, @"Ligature value must be a number ONE(default) or ZERO on iOS.");
-        return [self addAttribute:NSLigatureAttributeName value:@(integer)];
+        return [self addAttribute:NSLigatureAttributeName object:@(integer)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))kern {
     return ^id(CGFloat floating) {
-        return [self addAttribute:NSKernAttributeName value:@(floating)];
+        return [self addAttribute:NSKernAttributeName object:@(floating)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSShadow * _Nonnull))shadow {
     return ^id(NSShadow *sd) {
-        return [self addAttribute:NSShadowAttributeName value:sd];
+        return [self addAttribute:NSShadowAttributeName object:sd];
     };
 }
 
@@ -154,66 +152,68 @@
         if (![text isEqualToString:NSTextEffectLetterpressStyle]) {
             text = NSTextEffectLetterpressStyle;
         }
-        return [self addAttribute:NSTextEffectAttributeName value:text];
+        return [self addAttribute:NSTextEffectAttributeName object:text];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))obliqueness {
     return ^id(CGFloat floating) {
-        return [self addAttribute:NSObliquenessAttributeName value:@(floating)];
+        return [self addAttribute:NSObliquenessAttributeName object:@(floating)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))expansion {
     return ^id(CGFloat floating) {
-        return [self addAttribute:NSExpansionAttributeName value:@(floating)];
+        return [self addAttribute:NSExpansionAttributeName object:@(floating)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSArray<NSNumber *> * _Nonnull))writingDirection {
     return ^id(NSArray<NSNumber *> *options) {
-        return [self addAttribute:NSWritingDirectionAttributeName value:options];
+        return [self addAttribute:NSWritingDirectionAttributeName object:options];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSInteger))verticalGlyphForm {
     return ^id(NSInteger integer) {
-        return [self addAttribute:NSVerticalGlyphFormAttributeName value:@(integer)];
+        return [self addAttribute:NSVerticalGlyphFormAttributeName object:@(integer)];
     };
 }
 
 #pragma mark - private methods
 
 /**
- 缓存key，由索引_文本_属性名组成，确保key不重复，如果重复，说明属性值被重置，断言
- 添加缓存
- 设置属性值
+ 缓存key，由'索引-属性名'组成，确保key不重复；添加缓存；设置属性值
  */
-- (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key value:(id)value {
-    NSString *cacheKey = [NSString stringWithFormat:@"%tu_%@_%@", _currentTextIndex, self.text, key];
-    NSAssert(![self.attributedCacheDictionary objectForKey:cacheKey], @"Repeated setting attribute named [%@].", key);
-    [self.attributedCacheDictionary setObject:value forKey:cacheKey];
-    [self.segmentAttributedString addAttribute:key value:value range:NSMakeRange(0, self.segmentAttributedString.length)];
+- (AXAttributedStringChain *)addAttribute:(NSAttributedStringKey)key object:(id)obj {
+    NSString *cacheKey = [NSString stringWithFormat:@"%tu-%@", self.segmentIndex, key];
+    NSAssert(![self.keys containsObject:cacheKey], @"Duplicate setting attribute named - [%@].", key);
+    [self.keys addObject:cacheKey];
+    [self.segmentAttributedString addAttribute:key value:obj range:NSMakeRange(0, self.segmentAttributedString.length)];
     return self;
 }
 
-- (void)setUpSegmentAttributedStringWithText:(NSString *)text {
-    [self.attributedCacheDictionary removeAllObjects];
-    self.text = text;
-    self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
-    [self.mutableAttributedStrings addObject:self.segmentAttributedString];
-    _currentTextIndex = self.mutableAttributedStrings.count - 1;
-}
-
-- (void)setUpSegmentAttributedStringWithHTMLText:(NSString *)htmlText {
-    [self.attributedCacheDictionary removeAllObjects];
-    self.text = htmlText;
-    self.segmentAttributedString = [[NSMutableAttributedString alloc] initWithData:[self.text dataUsingEncoding:NSUnicodeStringEncoding]
-                                                                           options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
-                                                                documentAttributes:NULL
-                                                                             error:nil];
-    [self.mutableAttributedStrings addObject:self.segmentAttributedString];
-    _currentTextIndex = self.mutableAttributedStrings.count - 1;
+- (AXAttributedStringChain *)setUpSegmentAttributedStringWithText:(NSString *)text type:(AXAttributedStringTextType)type {
+    NSMutableAttributedString *mas = nil;
+    switch (type) {
+        case AXAttributedStringTextTypeNormal: {
+            mas = [[NSMutableAttributedString alloc] initWithString:text];
+            break;
+        }
+        
+        case AXAttributedStringTextTypeHTML: {
+            mas = [[NSMutableAttributedString alloc] initWithData:[text dataUsingEncoding:NSUnicodeStringEncoding]
+                                                          options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
+                                               documentAttributes:NULL
+                                                            error:nil];
+            break;
+        }
+    }
+    
+    [self.mutableAttributedStrings addObject:mas];
+    self.segmentAttributedString = mas;
+    self.segmentIndex = self.mutableAttributedStrings.count - 1;
+    return self;
 }
 
 #pragma mark - getter
@@ -229,11 +229,11 @@
     return self.mutableAttributedStrings.copy;
 }
 
-- (NSMutableDictionary *)attributedCacheDictionary {
-    if (!_attributedCacheDictionary) {
-        _attributedCacheDictionary = [[NSMutableDictionary alloc] init];
+- (NSMutableArray *)keys {
+    if (!_keys) {
+        _keys = [NSMutableArray array];
     }
-    return _attributedCacheDictionary;
+    return _keys;
 }
 
 @end
