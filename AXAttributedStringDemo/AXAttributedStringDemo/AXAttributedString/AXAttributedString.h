@@ -12,33 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol AXAttributeStringUIProtocol <NSObject>
-
-@required
-/**
- 使用AXAttributedString类给attributedText赋值
- */
-- (void)axa_setAttributedStringUsingBlock:(void(^)(AXAttributedStringMaker *make))block;
-@end
-
-/**
- UILabel Category
- */
-@interface UILabel (AXAttributedString) <AXAttributeStringUIProtocol>
-@end
-
-/**
- UITextField Category
- */
-@interface UITextField (AXAttributedString) <AXAttributeStringUIProtocol>
-@end
-
-/**
- UITextView Category
- */
-@interface UITextView (AXAttributedString) <AXAttributeStringUIProtocol>
-@end
-
 @interface AXAttributedString : NSObject
 
 /**

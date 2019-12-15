@@ -17,6 +17,10 @@
 		E0179EE421B7B76300F7CA7E /* AXAttributedStringChain.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179EE121B7B76300F7CA7E /* AXAttributedStringChain.m */; };
 		E0179EE521B7B76300F7CA7E /* AXAttributedStringMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179EE221B7B76300F7CA7E /* AXAttributedStringMaker.m */; };
 		E0179EE621B7B76300F7CA7E /* AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179EE321B7B76300F7CA7E /* AXAttributedString.m */; };
+		E35F1DAB23A5EDEE0024752E /* UILabel+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1DAA23A5EDEE0024752E /* UILabel+AXAttributedString.m */; };
+		E35F1DAE23A5EF190024752E /* UITextView+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1DAD23A5EF190024752E /* UITextView+AXAttributedString.m */; };
+		E35F1DB123A5F0ED0024752E /* UITextField+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1DB023A5F0ED0024752E /* UITextField+AXAttributedString.m */; };
+		E35F1DB423A5F2430024752E /* NSAttributedString+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1DB323A5F2430024752E /* NSAttributedString+AXAttributedString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,15 @@
 		E0179EE121B7B76300F7CA7E /* AXAttributedStringChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXAttributedStringChain.m; sourceTree = "<group>"; };
 		E0179EE221B7B76300F7CA7E /* AXAttributedStringMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXAttributedStringMaker.m; sourceTree = "<group>"; };
 		E0179EE321B7B76300F7CA7E /* AXAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXAttributedString.m; sourceTree = "<group>"; };
+		E35F1DA823A5ECA50024752E /* AXAttributedStringSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXAttributedStringSetting.h; sourceTree = "<group>"; };
+		E35F1DA923A5EDEE0024752E /* UILabel+AXAttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+AXAttributedString.h"; sourceTree = "<group>"; };
+		E35F1DAA23A5EDEE0024752E /* UILabel+AXAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AXAttributedString.m"; sourceTree = "<group>"; };
+		E35F1DAC23A5EF190024752E /* UITextView+AXAttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+AXAttributedString.h"; sourceTree = "<group>"; };
+		E35F1DAD23A5EF190024752E /* UITextView+AXAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+AXAttributedString.m"; sourceTree = "<group>"; };
+		E35F1DAF23A5F0ED0024752E /* UITextField+AXAttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+AXAttributedString.h"; sourceTree = "<group>"; };
+		E35F1DB023A5F0ED0024752E /* UITextField+AXAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+AXAttributedString.m"; sourceTree = "<group>"; };
+		E35F1DB223A5F2430024752E /* NSAttributedString+AXAttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+AXAttributedString.h"; sourceTree = "<group>"; };
+		E35F1DB323A5F2430024752E /* NSAttributedString+AXAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+AXAttributedString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +143,15 @@
 				E0179EE121B7B76300F7CA7E /* AXAttributedStringChain.m */,
 				E0179EDF21B7B76300F7CA7E /* AXAttributedStringMaker.h */,
 				E0179EE221B7B76300F7CA7E /* AXAttributedStringMaker.m */,
+				E35F1DB223A5F2430024752E /* NSAttributedString+AXAttributedString.h */,
+				E35F1DB323A5F2430024752E /* NSAttributedString+AXAttributedString.m */,
+				E35F1DA823A5ECA50024752E /* AXAttributedStringSetting.h */,
+				E35F1DA923A5EDEE0024752E /* UILabel+AXAttributedString.h */,
+				E35F1DAA23A5EDEE0024752E /* UILabel+AXAttributedString.m */,
+				E35F1DAF23A5F0ED0024752E /* UITextField+AXAttributedString.h */,
+				E35F1DB023A5F0ED0024752E /* UITextField+AXAttributedString.m */,
+				E35F1DAC23A5EF190024752E /* UITextView+AXAttributedString.h */,
+				E35F1DAD23A5EF190024752E /* UITextView+AXAttributedString.m */,
 			);
 			path = AXAttributedString;
 			sourceTree = "<group>";
@@ -264,10 +286,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35F1DB423A5F2430024752E /* NSAttributedString+AXAttributedString.m in Sources */,
+				E35F1DAE23A5EF190024752E /* UITextView+AXAttributedString.m in Sources */,
 				E0179EDA21B7B6D700F7CA7E /* SecondViewController.m in Sources */,
 				E0179EE621B7B76300F7CA7E /* AXAttributedString.m in Sources */,
 				E0179EE421B7B76300F7CA7E /* AXAttributedStringChain.m in Sources */,
+				E35F1DB123A5F0ED0024752E /* UITextField+AXAttributedString.m in Sources */,
 				E0179EAB21B7B67A00F7CA7E /* ViewController.m in Sources */,
+				E35F1DAB23A5EDEE0024752E /* UILabel+AXAttributedString.m in Sources */,
 				E0179EB621B7B67C00F7CA7E /* main.m in Sources */,
 				E0179EE521B7B76300F7CA7E /* AXAttributedStringMaker.m in Sources */,
 				E0179EA821B7B67A00F7CA7E /* AppDelegate.m in Sources */,

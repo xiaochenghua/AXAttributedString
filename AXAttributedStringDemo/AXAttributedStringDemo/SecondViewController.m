@@ -8,6 +8,8 @@
 
 #import "SecondViewController.h"
 #import "AXAttributedString/AXAttributedString.h"
+#import "UILabel+AXAttributedString.h"
+#import "UITextView+AXAttributedString.h"
 
 @interface SecondViewController () <UITextViewDelegate>
 @property (nonatomic, strong) UILabel *attributedStringLabel;
@@ -42,7 +44,7 @@
         _attributedStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 2 * 10, 300)];
         _attributedStringLabel.backgroundColor = UIColor.yellowColor;
         _attributedStringLabel.numberOfLines = 0;
-        [_attributedStringLabel axa_setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
+        [_attributedStringLabel setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
             make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
             make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:14]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
             make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(20).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.lightTextColor);
@@ -63,7 +65,7 @@
         _textView.editable = NO;
         _textView.dataDetectorTypes = UIDataDetectorTypeLink;
         _textView.delegate = self;
-        [_textView axa_setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
+        [_textView setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
             make.htmlText(@"a<br>b").systemFontSize(36).foregroundColor(UIColor.redColor);
             make.text(@"\n");
             make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
