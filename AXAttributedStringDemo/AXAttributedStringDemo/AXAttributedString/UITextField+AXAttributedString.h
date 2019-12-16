@@ -1,8 +1,9 @@
 //
 //  UITextField+AXAttributedString.h
-//  AXAttributedStringDemo
+//  AXAttributedString
 //
 //  Created by arnoldxiao on 2019/12/15.
+//  Email: arnoldxiao@163.com
 //  Copyright © 2019 xiaochenghua. All rights reserved.
 //
 

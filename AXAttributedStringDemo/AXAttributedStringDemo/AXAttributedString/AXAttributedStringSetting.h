@@ -1,13 +1,14 @@
 //
 //  AXAttributedStringSettingProtocol.h
-//  AXAttributedStringDemo
+//  AXAttributedString
 //
 //  Created by arnoldxiao on 2019/12/15.
+//  Email: arnoldxiao@163.com
 //  Copyright © 2019 xiaochenghua. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-//#import "AXAttributedStringMaker.h"
+
 @class AXAttributedStringMaker;
 
 NS_ASSUME_NONNULL_BEGIN

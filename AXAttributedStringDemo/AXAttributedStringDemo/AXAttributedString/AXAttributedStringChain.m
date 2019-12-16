@@ -24,7 +24,7 @@
 /**
  List of sub attribute strings.
  */
-@property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mutableAttributedStrings;
+@property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mass;
 
 /**
 keys
@@ -210,23 +210,23 @@ keys
         }
     }
     
-    [self.mutableAttributedStrings addObject:mas];
     self.segmentAttributedString = mas;
-    self.segmentIndex = self.mutableAttributedStrings.count - 1;
+    [self.mass addObject:mas];
+    self.segmentIndex = self.mass.count - 1;
     return self;
 }
 
 #pragma mark - getter
 
-- (NSMutableArray<NSMutableAttributedString *> *)mutableAttributedStrings {
-    if (!_mutableAttributedStrings) {
-        _mutableAttributedStrings = [NSMutableArray array];
+- (NSMutableArray<NSMutableAttributedString *> *)mass {
+    if (!_mass) {
+        _mass = [NSMutableArray array];
     }
-    return _mutableAttributedStrings;
+    return _mass;
 }
 
 - (NSArray<NSAttributedString *> *)attributedStrings {
-    return self.mutableAttributedStrings.copy;
+    return self.mass.copy;
 }
 
 - (NSMutableArray *)keys {

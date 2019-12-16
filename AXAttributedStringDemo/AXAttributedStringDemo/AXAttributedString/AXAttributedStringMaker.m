@@ -13,8 +13,6 @@ typedef AXAttributedStringChain *(^SegmentAttributedStringChainBlock)(NSString *
 
 @interface AXAttributedStringMaker ()
 
-@property (nonatomic, strong) NSMutableDictionary *attributedStringCache;
-
 /**
  Owned AXAttributedStringChain object.
  */
@@ -53,23 +51,16 @@ typedef AXAttributedStringChain *(^SegmentAttributedStringChainBlock)(NSString *
 }
 
 - (NSAttributedString *)install {
-    NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] init];
     
     [self.chain.attributedStrings enumerateObjectsUsingBlock:^(NSAttributedString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [mutableAttributedString appendAttributedString:obj];
-        [self.attributedStringCache setObject:obj forKey:[NSString stringWithFormat:@"%tu", idx]];
+        [mas appendAttributedString:obj];
     }];
-    return mutableAttributedString.copy;
+    
+    return mas.copy;
 }
 
 #pragma mark - getter
-
-- (NSMutableDictionary *)attributedStringCache {
-    if (!_attributedStringCache) {
-        _attributedStringCache = [[NSMutableDictionary alloc] init];
-    }
-    return _attributedStringCache;
-}
 
 - (AXAttributedStringChain *)chain {
     if (!_chain) {
