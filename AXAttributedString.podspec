@@ -17,17 +17,17 @@ Pod::Spec.new do |s|
   s.public_header_files = 'AXAttributedString/Classes/**/*.h'
   s.source_files  = 'AXAttributedString/Classes/**/*'
 
-  s.subspec 'Core' do |ss|
-    ss.public_header_files = 'AXAttributedString/Classes/Core/*.h'
-    ss.source_files = 'AXAttributedString/Classes/Core/*'
-  end
-
-  s.subspec 'UI' do |ss|
-    ss.public_header_files = 'AXAttributedString/Classes/UI/*.h'
-    ss.source_files = 'AXAttributedString/Classes/UI/*'
-  end
-
   s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit' 
   s.requires_arc = true
+
+  # s.subspec 'Core' do |ss|
+  #   ss.public_header_files = 'AXAttributedString/Classes/Core/*.h'
+  #   ss.source_files = 'AXAttributedString/Classes/Core/*'
+  # end
+
+  # s.subspec 'UI' do |ss|
+  #   ss.public_header_files = 'AXAttributedString/Classes/UI/*.h'
+  #   ss.source_files = 'AXAttributedString/Classes/UI/*'
+  # end
 
 end
