@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source       = { :git => 'https://github.com/arnoldxiao/AXAttributedString.git', :tag => '#{s.version}' }
 
-  s.public_header_files = 'AXAttributedString/Classes/**/*.{h}'
-  s.source_files  = 'AXAttributedString/Classes/**/*.{h,m}'
+  s.public_header_files = 'AXAttributedString/Classes/**/*.h'
+  s.source_files  = 'AXAttributedString/Classes/**/*'
 
   s.subspec 'Core' do |ss|
     ss.public_header_files = 'AXAttributedString/Classes/Core/*.{h}'
