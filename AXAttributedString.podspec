@@ -13,21 +13,21 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '8.0'
   s.source       = { :git => 'https://github.com/arnoldxiao/AXAttributedString.git', :tag => '#{s.version}' }
-  s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit' 
 
   s.public_header_files = 'AXAttributedString/Classes/**/*.h'
   s.source_files  = 'AXAttributedString/Classes/**/*'
 
   s.subspec 'Core' do |ss|
-    ss.public_header_files = 'AXAttributedString/Classes/Core/*.{h}'
-    ss.source_files = 'AXAttributedString/Classes/Core/*.{h,m}'
+    ss.public_header_files = 'AXAttributedString/Classes/Core/*.h'
+    ss.source_files = 'AXAttributedString/Classes/Core/*'
   end
 
   s.subspec 'UI' do |ss|
-    ss.public_header_files = 'AXAttributedString/Classes/UI/*.{h}'
-    ss.source_files = 'AXAttributedString/Classes/UI/*.{h,m}'
+    ss.public_header_files = 'AXAttributedString/Classes/UI/*.h'
+    ss.source_files = 'AXAttributedString/Classes/UI/*'
   end
 
+  s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit' 
   s.requires_arc = true
 
 end
