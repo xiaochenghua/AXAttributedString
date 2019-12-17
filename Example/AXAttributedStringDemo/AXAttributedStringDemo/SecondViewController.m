@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-#import "AXAttributedString/AXAttributedString.h"
+#import "AXAttributedString.h"
 #import "UILabel+AXAttributedString.h"
 #import "UITextView+AXAttributedString.h"
 
