@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AXAttributedString'
-  s.version      = '0.1.6'
+  s.version      = '0.1.7'
   s.summary      = 'An easier NSAttributedString builder, Use Chain-syntax like Masonry.'
   s.homepage     = 'https://github.com/arnoldxiao/AXAttributedString'
 
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.ios.deployment_target = '8.0'
-  s.source       = { :git => 'https://github.com/arnoldxiao/AXAttributedString.git', :tag => '#{s.version}' }
+  s.source       = { :git => 'git@github.com:arnoldxiao/AXAttributedString.git', :tag => '#{s.version}' }
 
   s.public_header_files = 'AXAttributedString/Classes/**/*.h'
   s.source_files  = 'AXAttributedString/Classes/**/*'
