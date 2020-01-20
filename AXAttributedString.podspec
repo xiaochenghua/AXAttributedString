@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                  = 'AXAttributedString'
-  s.version               = '0.2.0'
+  s.version               = '0.2.1'
   s.summary               = 'An easier NSAttributedString builder, Use Chain-syntax like Masonry.'
   s.homepage              = 'https://github.com/arnoldxiao/AXAttributedString'
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
