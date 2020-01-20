@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0525D7B739954B9DDEE32B2F /* libPods-AXAttributedStringDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 030F437DA0DD7F755594DD91 /* libPods-AXAttributedStringDemoTests.a */; };
+		48DECD6FD5C7FAB655632FF8 /* libPods-AXAttributedStringDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B568F2D17818B523935138 /* libPods-AXAttributedStringDemo.a */; };
+		8040F55C931135500D1E2695 /* libPods-AXAttributedStringDemo-AXAttributedStringDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9221574AEB0BB24E63A6E0D9 /* libPods-AXAttributedStringDemo-AXAttributedStringDemoUITests.a */; };
 		E0179EA821B7B67A00F7CA7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179EA721B7B67A00F7CA7E /* AppDelegate.m */; };
 		E0179EAB21B7B67A00F7CA7E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179EAA21B7B67A00F7CA7E /* ViewController.m */; };
 		E0179EAE21B7B67A00F7CA7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0179EAC21B7B67A00F7CA7E /* Main.storyboard */; };
@@ -14,12 +17,6 @@
 		E0179EB321B7B67C00F7CA7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0179EB121B7B67C00F7CA7E /* LaunchScreen.storyboard */; };
 		E0179EB621B7B67C00F7CA7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179EB521B7B67C00F7CA7E /* main.m */; };
 		E0179EDA21B7B6D700F7CA7E /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0179ED921B7B6D700F7CA7E /* SecondViewController.m */; };
-		E3E9376A23AA2F8C00B60C96 /* UITextView+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E9375C23AA2F8C00B60C96 /* UITextView+AXAttributedString.m */; };
-		E3E9376B23AA2F8C00B60C96 /* UITextField+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E9375E23AA2F8C00B60C96 /* UITextField+AXAttributedString.m */; };
-		E3E9376C23AA2F8C00B60C96 /* UILabel+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E9376023AA2F8C00B60C96 /* UILabel+AXAttributedString.m */; };
-		E3E9376D23AA2F8C00B60C96 /* AXAttributedStringChain.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E9376723AA2F8C00B60C96 /* AXAttributedStringChain.m */; };
-		E3E9376E23AA2F8C00B60C96 /* AXAttributedStringMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E9376823AA2F8C00B60C96 /* AXAttributedStringMaker.m */; };
-		E3E9376F23AA2F8C00B60C96 /* AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E9376923AA2F8C00B60C96 /* AXAttributedString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030F437DA0DD7F755594DD91 /* libPods-AXAttributedStringDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXAttributedStringDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1735CBEE46817AA863DF1184 /* Pods-AXAttributedStringDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXAttributedStringDemoTests.release.xcconfig"; path = "Target Support Files/Pods-AXAttributedStringDemoTests/Pods-AXAttributedStringDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		3293BA1FC61EB4680820AC3C /* Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests/Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50A1DEC156057C64436489E3 /* Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests/Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6286FE6006EE05402CA64E5C /* Pods-AXAttributedStringDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXAttributedStringDemo.debug.xcconfig"; path = "Target Support Files/Pods-AXAttributedStringDemo/Pods-AXAttributedStringDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6519371B932380B7E2BBD899 /* Pods-AXAttributedStringDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXAttributedStringDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-AXAttributedStringDemoTests/Pods-AXAttributedStringDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F36D8327E81FB76A4F0D443 /* Pods-AXAttributedStringDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXAttributedStringDemo.release.xcconfig"; path = "Target Support Files/Pods-AXAttributedStringDemo/Pods-AXAttributedStringDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9221574AEB0BB24E63A6E0D9 /* libPods-AXAttributedStringDemo-AXAttributedStringDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXAttributedStringDemo-AXAttributedStringDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0179EA321B7B67A00F7CA7E /* AXAttributedStringDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXAttributedStringDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0179EA621B7B67A00F7CA7E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E0179EA721B7B67A00F7CA7E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,19 +59,7 @@
 		E0179EC621B7B67C00F7CA7E /* AXAttributedStringDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXAttributedStringDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0179ED821B7B6D700F7CA7E /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		E0179ED921B7B6D700F7CA7E /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		E3E9375C23AA2F8C00B60C96 /* UITextView+AXAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+AXAttributedString.m"; sourceTree = "<group>"; };
-		E3E9375D23AA2F8C00B60C96 /* UILabel+AXAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AXAttributedString.h"; sourceTree = "<group>"; };
-		E3E9375E23AA2F8C00B60C96 /* UITextField+AXAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+AXAttributedString.m"; sourceTree = "<group>"; };
-		E3E9375F23AA2F8C00B60C96 /* UITextView+AXAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+AXAttributedString.h"; sourceTree = "<group>"; };
-		E3E9376023AA2F8C00B60C96 /* UILabel+AXAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AXAttributedString.m"; sourceTree = "<group>"; };
-		E3E9376123AA2F8C00B60C96 /* UITextField+AXAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+AXAttributedString.h"; sourceTree = "<group>"; };
-		E3E9376223AA2F8C00B60C96 /* AXAttributedStringSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXAttributedStringSetting.h; sourceTree = "<group>"; };
-		E3E9376423AA2F8C00B60C96 /* AXAttributedStringChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXAttributedStringChain.h; sourceTree = "<group>"; };
-		E3E9376523AA2F8C00B60C96 /* AXAttributedStringMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXAttributedStringMaker.h; sourceTree = "<group>"; };
-		E3E9376623AA2F8C00B60C96 /* AXAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXAttributedString.h; sourceTree = "<group>"; };
-		E3E9376723AA2F8C00B60C96 /* AXAttributedStringChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXAttributedStringChain.m; sourceTree = "<group>"; };
-		E3E9376823AA2F8C00B60C96 /* AXAttributedStringMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXAttributedStringMaker.m; sourceTree = "<group>"; };
-		E3E9376923AA2F8C00B60C96 /* AXAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXAttributedString.m; sourceTree = "<group>"; };
+		E9B568F2D17818B523935138 /* libPods-AXAttributedStringDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXAttributedStringDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48DECD6FD5C7FAB655632FF8 /* libPods-AXAttributedStringDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0525D7B739954B9DDEE32B2F /* libPods-AXAttributedStringDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,17 +83,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8040F55C931135500D1E2695 /* libPods-AXAttributedStringDemo-AXAttributedStringDemoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363889D0BFB334BABD1EB913 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6286FE6006EE05402CA64E5C /* Pods-AXAttributedStringDemo.debug.xcconfig */,
+				8F36D8327E81FB76A4F0D443 /* Pods-AXAttributedStringDemo.release.xcconfig */,
+				3293BA1FC61EB4680820AC3C /* Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.debug.xcconfig */,
+				50A1DEC156057C64436489E3 /* Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.release.xcconfig */,
+				6519371B932380B7E2BBD899 /* Pods-AXAttributedStringDemoTests.debug.xcconfig */,
+				1735CBEE46817AA863DF1184 /* Pods-AXAttributedStringDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E0179E9A21B7B67A00F7CA7E = {
 			isa = PBXGroup;
 			children = (
 				E0179EA521B7B67A00F7CA7E /* AXAttributedStringDemo */,
 				E0179EA421B7B67A00F7CA7E /* Products */,
+				363889D0BFB334BABD1EB913 /* Pods */,
+				EA12FB0F369B1A0DCAF3CAF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,7 +127,6 @@
 		E0179EA521B7B67A00F7CA7E /* AXAttributedStringDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E3E9375A23AA2F8C00B60C96 /* AXAttributedString */,
 				E0179EA621B7B67A00F7CA7E /* AppDelegate.h */,
 				E0179EA721B7B67A00F7CA7E /* AppDelegate.m */,
 				E0179EA921B7B67A00F7CA7E /* ViewController.h */,
@@ -131,41 +142,14 @@
 			path = AXAttributedStringDemo;
 			sourceTree = "<group>";
 		};
-		E3E9375A23AA2F8C00B60C96 /* AXAttributedString */ = {
+		EA12FB0F369B1A0DCAF3CAF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3E9376323AA2F8C00B60C96 /* Core */,
-				E3E9375B23AA2F8C00B60C96 /* UI */,
+				E9B568F2D17818B523935138 /* libPods-AXAttributedStringDemo.a */,
+				9221574AEB0BB24E63A6E0D9 /* libPods-AXAttributedStringDemo-AXAttributedStringDemoUITests.a */,
+				030F437DA0DD7F755594DD91 /* libPods-AXAttributedStringDemoTests.a */,
 			);
-			name = AXAttributedString;
-			path = ../../../AXAttributedString;
-			sourceTree = "<group>";
-		};
-		E3E9375B23AA2F8C00B60C96 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				E3E9376223AA2F8C00B60C96 /* AXAttributedStringSetting.h */,
-				E3E9375D23AA2F8C00B60C96 /* UILabel+AXAttributedString.h */,
-				E3E9376023AA2F8C00B60C96 /* UILabel+AXAttributedString.m */,
-				E3E9376123AA2F8C00B60C96 /* UITextField+AXAttributedString.h */,
-				E3E9375E23AA2F8C00B60C96 /* UITextField+AXAttributedString.m */,
-				E3E9375F23AA2F8C00B60C96 /* UITextView+AXAttributedString.h */,
-				E3E9375C23AA2F8C00B60C96 /* UITextView+AXAttributedString.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		E3E9376323AA2F8C00B60C96 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E3E9376623AA2F8C00B60C96 /* AXAttributedString.h */,
-				E3E9376923AA2F8C00B60C96 /* AXAttributedString.m */,
-				E3E9376423AA2F8C00B60C96 /* AXAttributedStringChain.h */,
-				E3E9376723AA2F8C00B60C96 /* AXAttributedStringChain.m */,
-				E3E9376523AA2F8C00B60C96 /* AXAttributedStringMaker.h */,
-				E3E9376823AA2F8C00B60C96 /* AXAttributedStringMaker.m */,
-			);
-			path = Core;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +159,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0179ECF21B7B67C00F7CA7E /* Build configuration list for PBXNativeTarget "AXAttributedStringDemo" */;
 			buildPhases = (
+				9A871606D99B6DD3DC38266F /* [CP] Check Pods Manifest.lock */,
 				E0179E9F21B7B67A00F7CA7E /* Sources */,
 				E0179EA021B7B67A00F7CA7E /* Frameworks */,
 				E0179EA121B7B67A00F7CA7E /* Resources */,
@@ -192,6 +177,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0179ED221B7B67C00F7CA7E /* Build configuration list for PBXNativeTarget "AXAttributedStringDemoTests" */;
 			buildPhases = (
+				3FCAF00B38004C5164696067 /* [CP] Check Pods Manifest.lock */,
 				E0179EB721B7B67C00F7CA7E /* Sources */,
 				E0179EB821B7B67C00F7CA7E /* Frameworks */,
 				E0179EB921B7B67C00F7CA7E /* Resources */,
@@ -210,6 +196,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0179ED521B7B67C00F7CA7E /* Build configuration list for PBXNativeTarget "AXAttributedStringDemoUITests" */;
 			buildPhases = (
+				B60B95E4133302E2DED25744 /* [CP] Check Pods Manifest.lock */,
 				E0179EC221B7B67C00F7CA7E /* Sources */,
 				E0179EC321B7B67C00F7CA7E /* Frameworks */,
 				E0179EC421B7B67C00F7CA7E /* Resources */,
@@ -293,21 +280,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3FCAF00B38004C5164696067 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AXAttributedStringDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A871606D99B6DD3DC38266F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AXAttributedStringDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B60B95E4133302E2DED25744 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0179E9F21B7B67A00F7CA7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3E9376B23AA2F8C00B60C96 /* UITextField+AXAttributedString.m in Sources */,
-				E3E9376F23AA2F8C00B60C96 /* AXAttributedString.m in Sources */,
-				E3E9376E23AA2F8C00B60C96 /* AXAttributedStringMaker.m in Sources */,
 				E0179EDA21B7B6D700F7CA7E /* SecondViewController.m in Sources */,
-				E3E9376A23AA2F8C00B60C96 /* UITextView+AXAttributedString.m in Sources */,
 				E0179EAB21B7B67A00F7CA7E /* ViewController.m in Sources */,
-				E3E9376C23AA2F8C00B60C96 /* UILabel+AXAttributedString.m in Sources */,
 				E0179EB621B7B67C00F7CA7E /* main.m in Sources */,
 				E0179EA821B7B67A00F7CA7E /* AppDelegate.m in Sources */,
-				E3E9376D23AA2F8C00B60C96 /* AXAttributedStringChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +524,7 @@
 		};
 		E0179ED021B7B67C00F7CA7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6286FE6006EE05402CA64E5C /* Pods-AXAttributedStringDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +543,7 @@
 		};
 		E0179ED121B7B67C00F7CA7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F36D8327E81FB76A4F0D443 /* Pods-AXAttributedStringDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -510,6 +562,7 @@
 		};
 		E0179ED321B7B67C00F7CA7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6519371B932380B7E2BBD899 /* Pods-AXAttributedStringDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -529,6 +582,7 @@
 		};
 		E0179ED421B7B67C00F7CA7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1735CBEE46817AA863DF1184 /* Pods-AXAttributedStringDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +602,7 @@
 		};
 		E0179ED621B7B67C00F7CA7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3293BA1FC61EB4680820AC3C /* Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USS6PD538D;
@@ -566,6 +621,7 @@
 		};
 		E0179ED721B7B67C00F7CA7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50A1DEC156057C64436489E3 /* Pods-AXAttributedStringDemo-AXAttributedStringDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USS6PD538D;
