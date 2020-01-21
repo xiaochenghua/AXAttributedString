@@ -1,16 +1,3 @@
-PODS:
-  - AXAttributedString (0.2.1)
-
-DEPENDENCIES:
-  - AXAttributedString (from `../../../AXAttributedString`)
-
-EXTERNAL SOURCES:
-  AXAttributedString:
-    :path: "../../../AXAttributedString"
-
-SPEC CHECKSUMS:
-  AXAttributedString: d19891188e65e12c7678a9afc3df766ec722cb6e
-
-PODFILE CHECKSUM: 4637b4a4218c56fc941a615daee4daaf701574cf
+PODFILE CHECKSUM: b70fcabb2986299e3d2da229642d5ed27f71d89d
 
 COCOAPODS: 1.8.4

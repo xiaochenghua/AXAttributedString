@@ -7,7 +7,8 @@ target 'AXAttributedStringDemo' do
 
   # Pods for AXAttributedStringDemo
 
-  pod 'AXAttributedString', :path => '../../../AXAttributedString'
+  # pod 'AXAttributedString'
+  # pod 'AXAttributedString', :path => '../../../AXAttributedString'
 
   target 'AXAttributedStringDemoTests' do
     inherit! :search_paths
