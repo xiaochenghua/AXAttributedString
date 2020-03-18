@@ -3,7 +3,7 @@
 ![pod](https://img.shields.io/cocoapods/v/AXAttributedString.svg)
 ![license](https://img.shields.io/github/license/arnoldxiao/AXAttributedString.svg)
 
-An easier NSAttributedString builder, Use Chain-syntax like [Masonry](https://github.com/SnapKit/Masonry).
+An easier attribute text creator, use chain-syntax.
 
 *Support for iOS 8.0+, Base on Objective-C.*
 
