@@ -1,8 +1,8 @@
 //
-//  UILabel+AXAttributedString.h
+//  UIButton+AXAttributedString.h
 //  AXAttributedString
 //
-//  Created by arnoldxiao on 2019/12/15.
+//  Created by chenghua.xiao on 2020/3/18.
 //  Email: arnoldxiao@163.com
 //  Copyright © 2019 xiaochenghua. All rights reserved.
 //
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UILabel (AXAttributedString) <AXAttributedStringSettingProtocol>
+@interface UIButton (AXAttributedString) <AXAttributedStringSettingForStateProtocol>
 
 @end
 

@@ -1,0 +1,14 @@
+# use_frameworks!
+
+platform :ios, '8.0'
+
+target 'AXAttributedString_Example' do
+  # pod 'AXAttributedString', :path => '../'
+  # pod 'AXAttributedString', '0.2.2'
+
+  target 'AXAttributedString_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

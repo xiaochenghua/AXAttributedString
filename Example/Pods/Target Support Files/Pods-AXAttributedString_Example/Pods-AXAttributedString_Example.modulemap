@@ -1,0 +1,6 @@
+framework module Pods_AXAttributedString_Example {
+  umbrella header "Pods-AXAttributedString_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

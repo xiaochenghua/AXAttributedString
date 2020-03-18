@@ -8,11 +8,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AXAttributedStringSetting.h"
+#import "AXAttributedStringSettingProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITextField (AXAttributedString) <AXAttributedStringSetting>
+@interface UITextField (AXAttributedString) <AXAttributedStringSettingProtocol>
 
 @end
 
