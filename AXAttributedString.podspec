@@ -32,6 +32,7 @@ Pod::Spec.new do |s|
     u.public_header_files = "AXAttributedString/UI/*.h"
     u.source_files = "AXAttributedString/UI/*.{h,m}"
     u.frameworks = "UIKit"
+    u.dependency "AXAttributedString/Core"
   end
 
   # s.public_header_files   = "AXAttributedString/Core/*.h","AXAttributedString/UI/*.h"
