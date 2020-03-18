@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     c.frameworks = "Foundation", "CoreGraphics"
   end
 
-  s.subspec 'UIKitAddition' do |u|
+  s.subspec 'UI' do |u|
     u.public_header_files = "AXAttributedString/UI/*.h"
     u.source_files = "AXAttributedString/UI/*.{h,m}"
     u.frameworks = "UIKit"
