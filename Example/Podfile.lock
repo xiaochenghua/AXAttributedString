@@ -1,3 +1,21 @@
-PODFILE CHECKSUM: d9111e1e42de2a91bf32f84de9da8b2f9ecee063
+PODS:
+  - AXAttributedString (0.2.3):
+    - AXAttributedString/Core (= 0.2.3)
+    - AXAttributedString/UI (= 0.2.3)
+  - AXAttributedString/Core (0.2.3)
+  - AXAttributedString/UI (0.2.3):
+    - AXAttributedString/Core
 
-COCOAPODS: 1.8.4
+DEPENDENCIES:
+  - AXAttributedString (= 0.2.3)
+
+SPEC REPOS:
+  trunk:
+    - AXAttributedString
+
+SPEC CHECKSUMS:
+  AXAttributedString: 4116d87029e18854a9b1d0c0d32db4f5456c245b
+
+PODFILE CHECKSUM: 85de30cff9152a3ffa692a6fc17b725033be67c3
+
+COCOAPODS: 1.9.1

@@ -1,15 +1,15 @@
 //
 //  AXSecondViewController.m
-//  AXAttributedString-Demo
+//  AXAttributedString
 //
 //  Created by xiaochenghua on 2018/6/6.
 //  Copyright © 2018 xiaochenghua. All rights reserved.
 //
 
 #import "AXSecondViewController.h"
-#import "AXAttributedString.h"
-#import "UILabel+AXAttributedString.h"
-#import "UITextView+AXAttributedString.h"
+#import <AXAttributedString/AXAttributedString.h>
+#import <AXAttributedString/UILabel+AXAttributedString.h>
+#import <AXAttributedString/UITextView+AXAttributedString.h>
 
 @interface AXSecondViewController () <UITextViewDelegate>
 @property (nonatomic, strong) UILabel *attributedStringLabel;
