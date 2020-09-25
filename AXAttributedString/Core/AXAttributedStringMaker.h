@@ -8,25 +8,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AXAttributedStringChain.h"
+#import "AXAttributedStringSegment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AXAttributedStringMaker : NSObject
+@property (nonatomic, copy, readonly) AXAttributedStringSegment *(^text)(NSString *text);
+@property (nonatomic, copy, readonly) AXAttributedStringSegment *(^htmlText)(NSString *htmlText);
+@property (nonatomic, copy, readonly) AXAttributedStringSegment *(^children)(NSArray<AXAttributedStringSegment *> *children);
 
-/**
- For the given string
- */
- @property (nonatomic, copy, readonly) AXAttributedStringChain *(^text)(NSString *string);
-
-/**
- For the given html string
- */
-@property (nonatomic, copy, readonly) AXAttributedStringChain *(^htmlText)(NSString *string);
-
-/**
- Splice and return the Sub-AttributedString
- */
 - (NSAttributedString *)install;
 
 @end

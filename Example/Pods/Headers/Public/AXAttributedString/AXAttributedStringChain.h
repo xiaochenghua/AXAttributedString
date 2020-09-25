@@ -1,1 +1,1 @@
-../../../AXAttributedString/AXAttributedString/Core/AXAttributedStringChain.h
+../../../../../AXAttributedString/Core/AXAttributedStringChain.h

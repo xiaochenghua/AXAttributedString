@@ -1,1 +1,1 @@
-../../../AXAttributedString/AXAttributedString/Core/AXAttributedStringSettingProtocol.h
+../../../../../AXAttributedString/UI/AXAttributedStringSettingProtocol.h

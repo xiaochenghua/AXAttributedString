@@ -7,24 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11259CD215E352D2DAF281BF32462074 /* UIButton+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = A11600184B594FC82CA5497493DA3362 /* UIButton+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1A6E02D0AB4A4F61D39187CD6A67EFCE /* UILabel+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A330F24BFA05B7A6B30DC665148491 /* UILabel+AXAttributedString.m */; };
-		1A8E5AEA5B316A56A7405FBF609AFC3F /* UITextField+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = B0309750E6F4B1EA184CD385EE632E1C /* UITextField+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3D042E5A97F96000B740AEDEF9A07601 /* UIButton+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CA93CF5E9BF6EB55080E027EDB0B62 /* UIButton+AXAttributedString.m */; };
+		11259CD215E352D2DAF281BF32462074 /* UIButton+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89FA82F869D4B7643C8CCA571F0B80 /* UIButton+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1A6E02D0AB4A4F61D39187CD6A67EFCE /* UILabel+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EB708019B9701A01D5415BBCFE27C /* UILabel+AXAttributedString.m */; };
+		1A8E5AEA5B316A56A7405FBF609AFC3F /* UITextField+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 526B18E4D151BF1FAA21831BE7C5E075 /* UITextField+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		22A33EE1251DC28B00A33547 /* NSAttributedString+AXAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 22A33EDF251DC28B00A33547 /* NSAttributedString+AXAdditional.h */; };
+		22A33EE2251DC28B00A33547 /* NSAttributedString+AXAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A33EE0251DC28B00A33547 /* NSAttributedString+AXAdditional.m */; };
+		22A33EE5251DC46400A33547 /* AXAttributedStringSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 22A33EE3251DC46400A33547 /* AXAttributedStringSegment.h */; };
+		22A33EE6251DC46400A33547 /* AXAttributedStringSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A33EE4251DC46400A33547 /* AXAttributedStringSegment.m */; };
+		22A33EEA251DE3B300A33547 /* AXAttributedStringMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 22A33EE9251DE3B300A33547 /* AXAttributedStringMaker.h */; };
+		3D042E5A97F96000B740AEDEF9A07601 /* UIButton+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EF1EAEC3C0F7C2BE8CECDE52F8B20 /* UIButton+AXAttributedString.m */; };
 		3DDE75C20FB7C1E0DC0EAACAB6B4678A /* Pods-AXAttributedString_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 974E63DC04F0109D15563608B8DE1788 /* Pods-AXAttributedString_Tests-dummy.m */; };
-		41F18F7F3653D1959F39EA7620574C84 /* AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B908779D322B8126B19D70D4EDEFB53 /* AXAttributedString.m */; };
-		5C052B41867E1223AB6F3228D985DB2B /* UITextField+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C7AA0C5B38AF2140504B61281B4EF /* UITextField+AXAttributedString.m */; };
+		41F18F7F3653D1959F39EA7620574C84 /* AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F6E152C7DA272085471AC55E73C0D /* AXAttributedString.m */; };
+		5C052B41867E1223AB6F3228D985DB2B /* UITextField+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9952B4ED7D957473A869263187E9C155 /* UITextField+AXAttributedString.m */; };
 		6A2F2AA069A7679AC2D810EC914C0AC9 /* Pods-AXAttributedString_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CEE580021D457C27AE07C8F99A8C9 /* Pods-AXAttributedString_Example-dummy.m */; };
-		70AF6544F7C43333A331A79FCCFD6164 /* AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = F3D65DCA625F77E103003673B709C1C7 /* AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7501DEA09DD0286A50ED314B1B8A935F /* UILabel+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 264490540172C295503985F23A4CA134 /* UILabel+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7E8AFB3A950090B9CACEF116FC15867C /* AXAttributedStringMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6579FE491983D3030FD52BBD6A4DF25D /* AXAttributedStringMaker.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		83031F365FA9477EC571D62190D9A0E6 /* UITextView+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 120129D6D027FFA5BEEBACE6465A248D /* UITextView+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		87ED3181DF37E433C0BD29DC88C465A8 /* AXAttributedStringChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 113EA8F5506BA5AC217081AB2EAC273F /* AXAttributedStringChain.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8F65915C1B89E0733C7B3D321A566484 /* AXAttributedStringMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7306DACA2B3C815BB4F6F4CBA308E9E2 /* AXAttributedStringMaker.m */; };
-		BAE9536620B8A564843BFB4108CA3B16 /* AXAttributedString-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 536C0681CE3D2D28ED1F9678BF62BE2C /* AXAttributedString-dummy.m */; };
-		CC6FC96913B160D2C894478EB048478A /* AXAttributedStringChain.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ED583AA7A5F4E55DE15D2762FDF5C8 /* AXAttributedStringChain.m */; };
-		D10FF7D02B73F8CBBDF006F4D451FD76 /* UITextView+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1202BC52029F70F54BAFFD69AD4FA682 /* UITextView+AXAttributedString.m */; };
-		F262CDECD20FB48844B30A1057DEE156 /* AXAttributedStringSettingProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F27154FB24D1D2CEEF2C79B04A21F8D4 /* AXAttributedStringSettingProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		70AF6544F7C43333A331A79FCCFD6164 /* AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A4AB71C6476D67A266454FC498A0E50 /* AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7501DEA09DD0286A50ED314B1B8A935F /* UILabel+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 22EA73ADB737456F7AF9075D929F5AFB /* UILabel+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		83031F365FA9477EC571D62190D9A0E6 /* UITextView+AXAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DF31BD6B0EC51F64F5EED4F954E59E5 /* UITextView+AXAttributedString.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		87ED3181DF37E433C0BD29DC88C465A8 /* AXAttributedStringChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 44AF3812211EDDE412D2FFBD7E7249E6 /* AXAttributedStringChain.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8F65915C1B89E0733C7B3D321A566484 /* AXAttributedStringMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 35814F301E8FEDA9FD5F7583D677F952 /* AXAttributedStringMaker.m */; };
+		BAE9536620B8A564843BFB4108CA3B16 /* AXAttributedString-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AEE7D82B7EF544A13191E5913304DC /* AXAttributedString-dummy.m */; };
+		CC6FC96913B160D2C894478EB048478A /* AXAttributedStringChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E089632789A014BE43455A31036F8A1 /* AXAttributedStringChain.m */; };
+		D10FF7D02B73F8CBBDF006F4D451FD76 /* UITextView+AXAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 099F40105D968D97790E924CD3467BCE /* UITextView+AXAttributedString.m */; };
+		E1B9769DB4469B07DE70D79C77CDF95C /* AXAttributedStringSettingProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3216A3196AE881230E241F3F28AB7AED /* AXAttributedStringSettingProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,38 +49,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		047C099F4EA50A9DABEFD8A636A852B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		099F40105D968D97790E924CD3467BCE /* UITextView+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+AXAttributedString.m"; path = "AXAttributedString/UI/UITextView+AXAttributedString.m"; sourceTree = "<group>"; };
+		0A4AB71C6476D67A266454FC498A0E50 /* AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedString.h; path = AXAttributedString/Core/AXAttributedString.h; sourceTree = "<group>"; };
+		0A6F6E152C7DA272085471AC55E73C0D /* AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXAttributedString.m; path = AXAttributedString/Core/AXAttributedString.m; sourceTree = "<group>"; };
 		0F23D935FB1C32E4ED8ADAB38995759C /* Pods-AXAttributedString_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AXAttributedString_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		113EA8F5506BA5AC217081AB2EAC273F /* AXAttributedStringChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringChain.h; path = AXAttributedString/Core/AXAttributedStringChain.h; sourceTree = "<group>"; };
-		120129D6D027FFA5BEEBACE6465A248D /* UITextView+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+AXAttributedString.h"; path = "AXAttributedString/UI/UITextView+AXAttributedString.h"; sourceTree = "<group>"; };
-		1202BC52029F70F54BAFFD69AD4FA682 /* UITextView+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+AXAttributedString.m"; path = "AXAttributedString/UI/UITextView+AXAttributedString.m"; sourceTree = "<group>"; };
+		163CF8F08D9A37FA74EF9BAC60BF2C65 /* AXAttributedString.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXAttributedString.release.xcconfig; sourceTree = "<group>"; };
 		18495BBF360FC591B8A9098C745C4A0C /* Pods-AXAttributedString_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXAttributedString_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		21125F58848F9D42C1A8BF127CDB7126 /* libPods-AXAttributedString_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-AXAttributedString_Example.a"; path = "libPods-AXAttributedString_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		264490540172C295503985F23A4CA134 /* UILabel+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+AXAttributedString.h"; path = "AXAttributedString/UI/UILabel+AXAttributedString.h"; sourceTree = "<group>"; };
-		2D0C7AA0C5B38AF2140504B61281B4EF /* UITextField+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+AXAttributedString.m"; path = "AXAttributedString/UI/UITextField+AXAttributedString.m"; sourceTree = "<group>"; };
-		2EE1A58CBC371CFBB1571E69AC61D24A /* AXAttributedString.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXAttributedString.debug.xcconfig; sourceTree = "<group>"; };
+		21125F58848F9D42C1A8BF127CDB7126 /* libPods-AXAttributedString_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXAttributedString_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22A33EDF251DC28B00A33547 /* NSAttributedString+AXAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+AXAdditional.h"; path = "AXAttributedString/Core/NSAttributedString+AXAdditional.h"; sourceTree = "<group>"; };
+		22A33EE0251DC28B00A33547 /* NSAttributedString+AXAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+AXAdditional.m"; path = "AXAttributedString/Core/NSAttributedString+AXAdditional.m"; sourceTree = "<group>"; };
+		22A33EE3251DC46400A33547 /* AXAttributedStringSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringSegment.h; path = AXAttributedString/Core/AXAttributedStringSegment.h; sourceTree = "<group>"; };
+		22A33EE4251DC46400A33547 /* AXAttributedStringSegment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AXAttributedStringSegment.m; path = AXAttributedString/Core/AXAttributedStringSegment.m; sourceTree = "<group>"; };
+		22A33EE9251DE3B300A33547 /* AXAttributedStringMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringMaker.h; path = AXAttributedString/Core/AXAttributedStringMaker.h; sourceTree = "<group>"; };
+		22EA73ADB737456F7AF9075D929F5AFB /* UILabel+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+AXAttributedString.h"; path = "AXAttributedString/UI/UILabel+AXAttributedString.h"; sourceTree = "<group>"; };
 		3060E0DE37AE48805DF88603DB31A74E /* Pods-AXAttributedString_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AXAttributedString_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3216A3196AE881230E241F3F28AB7AED /* AXAttributedStringSettingProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringSettingProtocol.h; path = AXAttributedString/UI/AXAttributedStringSettingProtocol.h; sourceTree = "<group>"; };
+		35814F301E8FEDA9FD5F7583D677F952 /* AXAttributedStringMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXAttributedStringMaker.m; path = AXAttributedString/Core/AXAttributedStringMaker.m; sourceTree = "<group>"; };
+		379EF1EAEC3C0F7C2BE8CECDE52F8B20 /* UIButton+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AXAttributedString.m"; path = "AXAttributedString/UI/UIButton+AXAttributedString.m"; sourceTree = "<group>"; };
 		39C59C50888ECCC7A007150A85C65AC5 /* Pods-AXAttributedString_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXAttributedString_Example.release.xcconfig"; sourceTree = "<group>"; };
-		536C0681CE3D2D28ED1F9678BF62BE2C /* AXAttributedString-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AXAttributedString-dummy.m"; sourceTree = "<group>"; };
-		5B908779D322B8126B19D70D4EDEFB53 /* AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXAttributedString.m; path = AXAttributedString/Core/AXAttributedString.m; sourceTree = "<group>"; };
-		6579FE491983D3030FD52BBD6A4DF25D /* AXAttributedStringMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringMaker.h; path = AXAttributedString/Core/AXAttributedStringMaker.h; sourceTree = "<group>"; };
-		71EE07995CB1EF9C31F9FB7B5E8BE8FB /* AXAttributedString-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXAttributedString-prefix.pch"; sourceTree = "<group>"; };
-		7306DACA2B3C815BB4F6F4CBA308E9E2 /* AXAttributedStringMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXAttributedStringMaker.m; path = AXAttributedString/Core/AXAttributedStringMaker.m; sourceTree = "<group>"; };
+		44AF3812211EDDE412D2FFBD7E7249E6 /* AXAttributedStringChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringChain.h; path = AXAttributedString/Core/AXAttributedStringChain.h; sourceTree = "<group>"; };
+		4E089632789A014BE43455A31036F8A1 /* AXAttributedStringChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXAttributedStringChain.m; path = AXAttributedString/Core/AXAttributedStringChain.m; sourceTree = "<group>"; };
+		526B18E4D151BF1FAA21831BE7C5E075 /* UITextField+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+AXAttributedString.h"; path = "AXAttributedString/UI/UITextField+AXAttributedString.h"; sourceTree = "<group>"; };
+		6DF31BD6B0EC51F64F5EED4F954E59E5 /* UITextView+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+AXAttributedString.h"; path = "AXAttributedString/UI/UITextView+AXAttributedString.h"; sourceTree = "<group>"; };
 		947E29DED85F9D4709AA685AC8A26DFA /* Pods-AXAttributedString_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AXAttributedString_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		95CA93CF5E9BF6EB55080E027EDB0B62 /* UIButton+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AXAttributedString.m"; path = "AXAttributedString/UI/UIButton+AXAttributedString.m"; sourceTree = "<group>"; };
+		952C3047A9AA5D9F292550060BD8B939 /* AXAttributedString-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXAttributedString-prefix.pch"; sourceTree = "<group>"; };
 		974E63DC04F0109D15563608B8DE1788 /* Pods-AXAttributedString_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AXAttributedString_Tests-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A11600184B594FC82CA5497493DA3362 /* UIButton+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AXAttributedString.h"; path = "AXAttributedString/UI/UIButton+AXAttributedString.h"; sourceTree = "<group>"; };
+		977EB708019B9701A01D5415BBCFE27C /* UILabel+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+AXAttributedString.m"; path = "AXAttributedString/UI/UILabel+AXAttributedString.m"; sourceTree = "<group>"; };
+		9952B4ED7D957473A869263187E9C155 /* UITextField+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+AXAttributedString.m"; path = "AXAttributedString/UI/UITextField+AXAttributedString.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A388571479285BEF86E5A4A5269F747C /* Pods-AXAttributedString_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXAttributedString_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		AC724A4BB02D8CEFF84C2BFA0247F7EB /* AXAttributedString.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXAttributedString.release.xcconfig; sourceTree = "<group>"; };
-		B0309750E6F4B1EA184CD385EE632E1C /* UITextField+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+AXAttributedString.h"; path = "AXAttributedString/UI/UITextField+AXAttributedString.h"; sourceTree = "<group>"; };
+		B9A1300C84B52DBFC6BC96590824CF8E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BA89FA82F869D4B7643C8CCA571F0B80 /* UIButton+AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AXAttributedString.h"; path = "AXAttributedString/UI/UIButton+AXAttributedString.h"; sourceTree = "<group>"; };
 		BB6CEE580021D457C27AE07C8F99A8C9 /* Pods-AXAttributedString_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AXAttributedString_Example-dummy.m"; sourceTree = "<group>"; };
-		C1323B2792FF268CFCAC6254A8F35A28 /* libPods-AXAttributedString_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-AXAttributedString_Tests.a"; path = "libPods-AXAttributedString_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1323B2792FF268CFCAC6254A8F35A28 /* libPods-AXAttributedString_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXAttributedString_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1AEE7D82B7EF544A13191E5913304DC /* AXAttributedString-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AXAttributedString-dummy.m"; sourceTree = "<group>"; };
+		CB90F09912C7288BAF07F2698075C281 /* AXAttributedString.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXAttributedString.debug.xcconfig; sourceTree = "<group>"; };
 		D15998ECC8D8C1A952BE1208EFC0B1E3 /* Pods-AXAttributedString_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AXAttributedString_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E0ED583AA7A5F4E55DE15D2762FDF5C8 /* AXAttributedStringChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXAttributedStringChain.m; path = AXAttributedString/Core/AXAttributedStringChain.m; sourceTree = "<group>"; };
-		EBE018F987F6637AD76E684F8D377825 /* libAXAttributedString.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAXAttributedString.a; path = libAXAttributedString.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0A330F24BFA05B7A6B30DC665148491 /* UILabel+AXAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+AXAttributedString.m"; path = "AXAttributedString/UI/UILabel+AXAttributedString.m"; sourceTree = "<group>"; };
-		F27154FB24D1D2CEEF2C79B04A21F8D4 /* AXAttributedStringSettingProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedStringSettingProtocol.h; path = AXAttributedString/Core/AXAttributedStringSettingProtocol.h; sourceTree = "<group>"; };
-		F3D65DCA625F77E103003673B709C1C7 /* AXAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXAttributedString.h; path = AXAttributedString/Core/AXAttributedString.h; sourceTree = "<group>"; };
+		EBE018F987F6637AD76E684F8D377825 /* libAXAttributedString.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAXAttributedString.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD5C9026AC2B38585061F0487AC94773 /* AXAttributedString.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AXAttributedString.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		FF9DB2D7012B740E5FB07684EA0B0124 /* Pods-AXAttributedString_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXAttributedString_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,20 +116,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BCABADF9F967A4B762E30211D3858B8 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				F3D65DCA625F77E103003673B709C1C7 /* AXAttributedString.h */,
-				5B908779D322B8126B19D70D4EDEFB53 /* AXAttributedString.m */,
-				113EA8F5506BA5AC217081AB2EAC273F /* AXAttributedStringChain.h */,
-				E0ED583AA7A5F4E55DE15D2762FDF5C8 /* AXAttributedStringChain.m */,
-				6579FE491983D3030FD52BBD6A4DF25D /* AXAttributedStringMaker.h */,
-				7306DACA2B3C815BB4F6F4CBA308E9E2 /* AXAttributedStringMaker.m */,
-				F27154FB24D1D2CEEF2C79B04A21F8D4 /* AXAttributedStringSettingProtocol.h */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
 		11B075EE31CFF5AA0078DBF22EBC70F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +124,18 @@
 				C1323B2792FF268CFCAC6254A8F35A28 /* libPods-AXAttributedString_Tests.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		231E4B920BDD8619DB72D38FBA176F27 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C1AEE7D82B7EF544A13191E5913304DC /* AXAttributedString-dummy.m */,
+				952C3047A9AA5D9F292550060BD8B939 /* AXAttributedString-prefix.pch */,
+				CB90F09912C7288BAF07F2698075C281 /* AXAttributedString.debug.xcconfig */,
+				163CF8F08D9A37FA74EF9BAC60BF2C65 /* AXAttributedString.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AXAttributedString";
 			sourceTree = "<group>";
 		};
 		2447035D2069D1B3F153583BECDF3B02 /* Targets Support Files */ = {
@@ -138,39 +147,49 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4E5A503424A05438DABFA0B4A45956A3 /* Pods */ = {
+		27BAB09E2332F86FF483A186CD056FF0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				B05469E84216FDE846E2D02CC0257080 /* AXAttributedString */,
+				3216A3196AE881230E241F3F28AB7AED /* AXAttributedStringSettingProtocol.h */,
+				BA89FA82F869D4B7643C8CCA571F0B80 /* UIButton+AXAttributedString.h */,
+				379EF1EAEC3C0F7C2BE8CECDE52F8B20 /* UIButton+AXAttributedString.m */,
+				22EA73ADB737456F7AF9075D929F5AFB /* UILabel+AXAttributedString.h */,
+				977EB708019B9701A01D5415BBCFE27C /* UILabel+AXAttributedString.m */,
+				526B18E4D151BF1FAA21831BE7C5E075 /* UITextField+AXAttributedString.h */,
+				9952B4ED7D957473A869263187E9C155 /* UITextField+AXAttributedString.m */,
+				6DF31BD6B0EC51F64F5EED4F954E59E5 /* UITextView+AXAttributedString.h */,
+				099F40105D968D97790E924CD3467BCE /* UITextView+AXAttributedString.m */,
 			);
-			name = Pods;
+			name = UIKit;
 			sourceTree = "<group>";
 		};
-		61D3BEE23B72D8BB57500B00CA01D12E /* Support Files */ = {
+		36A3F3AE22A22A4DD5ADD283F69ACCD4 /* AXAttributedString */ = {
 			isa = PBXGroup;
 			children = (
-				536C0681CE3D2D28ED1F9678BF62BE2C /* AXAttributedString-dummy.m */,
-				71EE07995CB1EF9C31F9FB7B5E8BE8FB /* AXAttributedString-prefix.pch */,
-				2EE1A58CBC371CFBB1571E69AC61D24A /* AXAttributedString.debug.xcconfig */,
-				AC724A4BB02D8CEFF84C2BFA0247F7EB /* AXAttributedString.release.xcconfig */,
+				775FC6FC1DC28D5ACE38C93F5F7F30C9 /* Core */,
+				B0EB94DD5720C142998604F0ACC33627 /* Pod */,
+				231E4B920BDD8619DB72D38FBA176F27 /* Support Files */,
+				27BAB09E2332F86FF483A186CD056FF0 /* UIKit */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/AXAttributedString";
+			name = AXAttributedString;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		753111DCD3ACAA1490C25B6627072B10 /* UI */ = {
+		775FC6FC1DC28D5ACE38C93F5F7F30C9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A11600184B594FC82CA5497493DA3362 /* UIButton+AXAttributedString.h */,
-				95CA93CF5E9BF6EB55080E027EDB0B62 /* UIButton+AXAttributedString.m */,
-				264490540172C295503985F23A4CA134 /* UILabel+AXAttributedString.h */,
-				F0A330F24BFA05B7A6B30DC665148491 /* UILabel+AXAttributedString.m */,
-				B0309750E6F4B1EA184CD385EE632E1C /* UITextField+AXAttributedString.h */,
-				2D0C7AA0C5B38AF2140504B61281B4EF /* UITextField+AXAttributedString.m */,
-				120129D6D027FFA5BEEBACE6465A248D /* UITextView+AXAttributedString.h */,
-				1202BC52029F70F54BAFFD69AD4FA682 /* UITextView+AXAttributedString.m */,
+				0A4AB71C6476D67A266454FC498A0E50 /* AXAttributedString.h */,
+				0A6F6E152C7DA272085471AC55E73C0D /* AXAttributedString.m */,
+				44AF3812211EDDE412D2FFBD7E7249E6 /* AXAttributedStringChain.h */,
+				4E089632789A014BE43455A31036F8A1 /* AXAttributedStringChain.m */,
+				22A33EE9251DE3B300A33547 /* AXAttributedStringMaker.h */,
+				35814F301E8FEDA9FD5F7583D677F952 /* AXAttributedStringMaker.m */,
+				22A33EDF251DC28B00A33547 /* NSAttributedString+AXAdditional.h */,
+				22A33EE0251DC28B00A33547 /* NSAttributedString+AXAdditional.m */,
+				22A33EE3251DC46400A33547 /* AXAttributedStringSegment.h */,
+				22A33EE4251DC46400A33547 /* AXAttributedStringSegment.m */,
 			);
-			name = UI;
+			name = Core;
 			sourceTree = "<group>";
 		};
 		9BF9A27396246FB36640EC654F853302 /* Pods-AXAttributedString_Tests */ = {
@@ -199,23 +218,30 @@
 			path = "Target Support Files/Pods-AXAttributedString_Example";
 			sourceTree = "<group>";
 		};
-		B05469E84216FDE846E2D02CC0257080 /* AXAttributedString */ = {
+		B0EB94DD5720C142998604F0ACC33627 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				0BCABADF9F967A4B762E30211D3858B8 /* Core */,
-				61D3BEE23B72D8BB57500B00CA01D12E /* Support Files */,
-				753111DCD3ACAA1490C25B6627072B10 /* UI */,
+				FD5C9026AC2B38585061F0487AC94773 /* AXAttributedString.podspec */,
+				047C099F4EA50A9DABEFD8A636A852B3 /* LICENSE */,
+				B9A1300C84B52DBFC6BC96590824CF8E /* README.md */,
 			);
-			name = AXAttributedString;
-			path = AXAttributedString;
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		C7A6A7C3EA57C239843CE150370BCC53 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36A3F3AE22A22A4DD5ADD283F69ACCD4 /* AXAttributedString */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				C7A6A7C3EA57C239843CE150370BCC53 /* Development Pods */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
-				4E5A503424A05438DABFA0B4A45956A3 /* Pods */,
 				11B075EE31CFF5AA0078DBF22EBC70F8 /* Products */,
 				2447035D2069D1B3F153583BECDF3B02 /* Targets Support Files */,
 			);
@@ -251,10 +277,12 @@
 			files = (
 				70AF6544F7C43333A331A79FCCFD6164 /* AXAttributedString.h in Headers */,
 				87ED3181DF37E433C0BD29DC88C465A8 /* AXAttributedStringChain.h in Headers */,
-				7E8AFB3A950090B9CACEF116FC15867C /* AXAttributedStringMaker.h in Headers */,
-				F262CDECD20FB48844B30A1057DEE156 /* AXAttributedStringSettingProtocol.h in Headers */,
+				E1B9769DB4469B07DE70D79C77CDF95C /* AXAttributedStringSettingProtocol.h in Headers */,
+				22A33EE5251DC46400A33547 /* AXAttributedStringSegment.h in Headers */,
 				11259CD215E352D2DAF281BF32462074 /* UIButton+AXAttributedString.h in Headers */,
+				22A33EE1251DC28B00A33547 /* NSAttributedString+AXAdditional.h in Headers */,
 				7501DEA09DD0286A50ED314B1B8A935F /* UILabel+AXAttributedString.h in Headers */,
+				22A33EEA251DE3B300A33547 /* AXAttributedStringMaker.h in Headers */,
 				1A8E5AEA5B316A56A7405FBF609AFC3F /* UITextField+AXAttributedString.h in Headers */,
 				83031F365FA9477EC571D62190D9A0E6 /* UITextView+AXAttributedString.h in Headers */,
 			);
@@ -360,12 +388,14 @@
 			files = (
 				BAE9536620B8A564843BFB4108CA3B16 /* AXAttributedString-dummy.m in Sources */,
 				41F18F7F3653D1959F39EA7620574C84 /* AXAttributedString.m in Sources */,
+				22A33EE2251DC28B00A33547 /* NSAttributedString+AXAdditional.m in Sources */,
 				CC6FC96913B160D2C894478EB048478A /* AXAttributedStringChain.m in Sources */,
 				8F65915C1B89E0733C7B3D321A566484 /* AXAttributedStringMaker.m in Sources */,
 				3D042E5A97F96000B740AEDEF9A07601 /* UIButton+AXAttributedString.m in Sources */,
 				1A6E02D0AB4A4F61D39187CD6A67EFCE /* UILabel+AXAttributedString.m in Sources */,
 				5C052B41867E1223AB6F3228D985DB2B /* UITextField+AXAttributedString.m in Sources */,
 				D10FF7D02B73F8CBBDF006F4D451FD76 /* UITextView+AXAttributedString.m in Sources */,
+				22A33EE6251DC46400A33547 /* AXAttributedStringSegment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +448,7 @@
 		};
 		3DFA2D5435313701CBC367DDC048DB5F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EE1A58CBC371CFBB1571E69AC61D24A /* AXAttributedString.debug.xcconfig */;
+			baseConfigurationReference = CB90F09912C7288BAF07F2698075C281 /* AXAttributedString.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -514,8 +544,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -631,7 +660,7 @@
 		};
 		E5F7CAD2B09119356A6376B5603ABDEC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC724A4BB02D8CEFF84C2BFA0247F7EB /* AXAttributedString.release.xcconfig */;
+			baseConfigurationReference = 163CF8F08D9A37FA74EF9BAC60BF2C65 /* AXAttributedString.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

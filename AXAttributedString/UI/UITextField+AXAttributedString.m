@@ -14,7 +14,7 @@
 @implementation UITextField (AXAttributedString)
 
 - (void)setAttributedStringUsingBlock:(void (NS_NOESCAPE ^)(AXAttributedStringMaker * _Nonnull))block {
-    self.attributedText = [AXAttributedString makeAttributedString:block];
+//    self.attributedText = [AXAttributedString makeAttributedString:block];
 }
 
 @end

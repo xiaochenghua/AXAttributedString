@@ -9,64 +9,95 @@
 
 #import "AXAttributedStringMaker.h"
 
-typedef AXAttributedStringChain *(^SegmentAttributedStringChainBlock)(NSString *);
+typedef AXAttributedStringSegment *(^AXAttributedStringSegmentBlock)(id _Nonnull object);
 
 @interface AXAttributedStringMaker ()
 
-/**
- Owned AXAttributedStringChain object.
- */
-@property (nonatomic, strong) AXAttributedStringChain *chain;
-
-@property (nonatomic, copy) SegmentAttributedStringChainBlock(^segmentAttributedStringSetUpBlock)(AXAttributedStringTextType type);
-
+@property (nonatomic, strong) NSMutableArray<AXAttributedStringSegment *> *segments;
+//@property (nonatomic, copy) AXAttributedStringSegmentStringBlock(^segmentWithText)(AXAttributedStringSegmentType type);
+//@property (nonatomic, copy) AXAttributedStringSegmentChildrenBlock(^segmentWithChildren)(void);
+@property (nonatomic, copy) AXAttributedStringSegmentBlock(^segment)(AXAttributedStringSegmentType type);
 @end
 
 @implementation AXAttributedStringMaker
 
-- (instancetype)init {
-    if (self = [super init]) {
-        __weak typeof(self) weakSelf = self;
-        _segmentAttributedStringSetUpBlock = ^SegmentAttributedStringChainBlock(AXAttributedStringTextType type) {
-            return ^AXAttributedStringChain *(NSString *text) {
-                __strong typeof(weakSelf) self = weakSelf;
-                NSAssert(text.length, @"The text's length cannot be ZERO.");
-                return [self.chain setUpSegmentAttributedStringWithText:text type:type];
-            };
-        };
-    }
-    return self;
-}
-
 #pragma mark - private methods
 
-- (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))text {
-    NSAssert(self.segmentAttributedStringSetUpBlock, @"segmentAttributedStringSetUpBlock is nil.");
-    return self.segmentAttributedStringSetUpBlock(AXAttributedStringTextTypeNormal);
-}
-
-- (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))htmlText {
-    NSAssert(self.segmentAttributedStringSetUpBlock, @"segmentAttributedStringSetUpBlock is nil.");
-    return self.segmentAttributedStringSetUpBlock(AXAttributedStringTextTypeHTML);
-}
-
 - (NSAttributedString *)install {
-    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] init];
     
-    [self.chain.attributedStrings enumerateObjectsUsingBlock:^(NSAttributedString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [mas appendAttributedString:obj];
+    // 遍历segments数组
+    [self.segments enumerateObjectsUsingBlock:^(AXAttributedStringSegment * _Nonnull segment, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (segment.attributedString) {
+            [mutableAttributedString appendAttributedString:segment.attributedString];
+        }
     }];
     
-    return mas.copy;
+    return [mutableAttributedString copy];
 }
 
 #pragma mark - getter
 
-- (AXAttributedStringChain *)chain {
-    if (!_chain) {
-        _chain = [[AXAttributedStringChain alloc] init];
+- (AXAttributedStringSegmentStringBlock)text {
+    return self.segment(AXAttributedStringSegmentTypeNormal);
+}
+
+- (AXAttributedStringSegmentStringBlock)htmlText {
+    return self.segment(AXAttributedStringSegmentTypeHTML);
+}
+
+- (AXAttributedStringSegmentChildrenBlock)children {
+    return self.segment(AXAttributedStringSegmentTypeContainer);
+}
+
+- (AXAttributedStringSegmentBlock (^)(AXAttributedStringSegmentType))segment {
+    if (!_segment) {
+        __weak typeof(self) weakSelf = self;
+        _segment = ^AXAttributedStringSegmentBlock(AXAttributedStringSegmentType type) {
+            return ^AXAttributedStringSegment *(id object) {
+                __strong typeof(weakSelf) self = weakSelf;
+                AXAttributedStringSegment *segment = nil;
+                switch (type) {
+                    case AXAttributedStringSegmentTypeNormal:
+                    case AXAttributedStringSegmentTypeHTML: {
+                        NSAssert([object isKindOfClass:[NSString class]] && ((NSString *)object).length, @"The text's length cannot be ZERO.");
+                        segment = [AXAttributedStringSegment segmentWithType:type text:(NSString *)object];
+                        break;
+                    }
+                    case AXAttributedStringSegmentTypeContainer: {
+                        NSAssert([object isKindOfClass:[NSArray class]] && ((NSArray *)object).count, @"The children's count cannot be ZERO.");
+                        __block BOOL valid = NO;
+                        [(NSArray *)object enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                            if (![obj isKindOfClass:[AXAttributedStringSegment class]]) {
+                                valid = YES;
+                                *stop = YES;
+                                return;
+                            }
+                        }];
+                        
+                        NSAssert(valid, @"The children's object type is not AXAttributedStringSegment.");
+                        
+                        segment = [AXAttributedStringSegment segmentWithType:type children:(NSArray<AXAttributedStringSegment *> *)object];
+                        break;
+                    }
+                }
+                
+                NSAssert(segment, @"The segment object not allow nil.");
+                
+                [self.segments addObject:segment];
+                
+                return segment;
+            };
+        };;
     }
-    return _chain;
+    return _segment;
+}
+
+- (NSMutableArray<AXAttributedStringSegment *> *)segments {
+    if (!_segments) {
+        _segments = [NSMutableArray array];
+    }
+    return _segments;
 }
 
 @end

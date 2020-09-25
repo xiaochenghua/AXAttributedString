@@ -1,21 +1,21 @@
 PODS:
-  - AXAttributedString (0.2.3):
-    - AXAttributedString/Core (= 0.2.3)
-    - AXAttributedString/UI (= 0.2.3)
-  - AXAttributedString/Core (0.2.3)
-  - AXAttributedString/UI (0.2.3):
+  - AXAttributedString (0.2.5):
+    - AXAttributedString/Core (= 0.2.5)
+    - AXAttributedString/UIKit (= 0.2.5)
+  - AXAttributedString/Core (0.2.5)
+  - AXAttributedString/UIKit (0.2.5):
     - AXAttributedString/Core
 
 DEPENDENCIES:
-  - AXAttributedString (= 0.2.3)
+  - AXAttributedString (from `../`)
 
-SPEC REPOS:
-  trunk:
-    - AXAttributedString
+EXTERNAL SOURCES:
+  AXAttributedString:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  AXAttributedString: 4116d87029e18854a9b1d0c0d32db4f5456c245b
+  AXAttributedString: 8bab56215d9a5703e8ec8cd76cf99ae2847a6b5e
 
-PODFILE CHECKSUM: 85de30cff9152a3ffa692a6fc17b725033be67c3
+PODFILE CHECKSUM: 07ee694c27e7a928017030ceca796af73a612d42
 
 COCOAPODS: 1.9.1

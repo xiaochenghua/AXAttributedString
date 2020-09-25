@@ -13,7 +13,7 @@
 @implementation UIButton (AXAttributedString)
 
 - (void)setAttributedStringUsingBlock:(void (NS_NOESCAPE ^)(AXAttributedStringMaker * _Nonnull))block forState:(UIControlState)state {
-    [self setAttributedTitle:[AXAttributedString makeAttributedString:block] forState:state];
+//    [self setAttributedTitle:[AXAttributedString makeAttributedString:block] forState:state];
 }
 
 @end
