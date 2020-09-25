@@ -38,118 +38,118 @@ typedef NS_ENUM(NSUInteger, AXAttributedStringTextType) {
 /**
  NSForegroundColorAttributeName, default blackColor
  */
-- (AXAttributedStringChain *(^)(UIColor *color))foregroundColor;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^foregroundColor)(UIColor *color);
 
 /**
  NSBackgroundColorAttributeName, default nil: no background
  */
-- (AXAttributedStringChain *(^)(UIColor *color))backgroundColor;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^backgroundColor)(UIColor *color);
 
 /**
  NSFontAttributeName, value is a UIFont object, default Helvetica(Neue) 12
  */
-- (AXAttributedStringChain *(^)(UIFont *font))font;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^font)(UIFont *font);
 
 /**
  NSFontAttributeName, value is float digit.
  */
-- (AXAttributedStringChain *(^)(CGFloat floating))systemFontSize;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^systemFontSize)(CGFloat fontSize);
 
 /**
  NSUnderlineStyleAttributeName, default 0: no underline, NSUnderlineStyleNone
  */
-- (AXAttributedStringChain *(^)(NSUnderlineStyle style))underlineStyle;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^underlineStyle)(NSUnderlineStyle style);
 
 /**
  NSUnderlineColorAttributeName, default nil: same as foreground color
  */
-- (AXAttributedStringChain *(^)(UIColor *color))underlineColor;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^underlineColor)(UIColor *color);
 
 /**
  NSBaselineOffsetAttributeName, default 0
  */
-- (AXAttributedStringChain *(^)(CGFloat offset))baselineOffset;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^baselineOffset)(CGFloat offset);
 
 /**
  NSStrikethroughStyleAttributeName, default 0: no strikethrough, NSUnderlineStyleNone
  */
-- (AXAttributedStringChain *(^)(NSUnderlineStyle style))strikethroughStyle;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^strikethroughStyle)(NSUnderlineStyle style);
 
 /**
- NSStrikethroughColorAttributeName, default nil: same as foreground color
+ NSStrikethroughColorAttributeName, default same with foreground color
  */
-- (AXAttributedStringChain *(^)(UIColor *color))strikethroughColor;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^strikethroughColor)(UIColor *color);
 
 /**
  NSParagraphStyleAttributeName, default defaultParagraphStyle
  */
-- (AXAttributedStringChain *(^)(NSParagraphStyle *style))paragraphStyle;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^paragraphStyle)(NSParagraphStyle *style);
 
 /**
  NSStrokeColorAttributeName, default nil: same as foreground color
  */
-- (AXAttributedStringChain *(^)(UIColor *color))strokeColor;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^strokeColor)(UIColor *color);
 
 /**
  NSStrokeWidthAttributeName, default 0: no stroke
  */
-- (AXAttributedStringChain *(^)(CGFloat width))strokeWidth;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^strokeWidth)(CGFloat width);
 
 /**
  NSAttachmentAttributeName, default nil
  */
-- (AXAttributedStringChain *(^)(NSTextAttachment *textAttachment))attachment;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^attachment)(NSTextAttachment *attachment);
 
 /**
  NSLinkAttributeName, url must be kind of [NSURL] or [NSString]
  */
-- (AXAttributedStringChain *(^)(NSURL *url))linkUrl;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^linkUrl)(NSURL *url);
 
 /**
- NSLinkAttributeName
+ NSLinkAttributeName, url must be kind of [NSURL] or [NSString]
  */
-- (AXAttributedStringChain *(^)(NSString *string))linkString;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^linkString)(NSString *string);
 
 /**
  NSLigatureAttributeName, default ONE: default ligatures, ZERO: no ligatures
  */
-- (AXAttributedStringChain *(^)(NSInteger integer))ligature;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^ligature)(NSInteger integer);
 
 /**
  NSKernAttributeName, default 0, kerning is disabled.
  */
-- (AXAttributedStringChain *(^)(CGFloat floating))kern;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^kern)(CGFloat kern);
 
 /**
  NSShadowAttributeName, default nil: no shadow
  */
-- (AXAttributedStringChain *(^)(NSShadow *sd))shadow;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^shadow)(NSShadow *shadow);
 
 /**
  NSTextEffectAttributeName, default nil: no text effect
  */
-- (AXAttributedStringChain *(^)(NSString *text))textEffect;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^effect)(NSString *text);
 
 /**
  NSObliquenessAttributeName, default 0: no skew
  */
-- (AXAttributedStringChain *(^)(CGFloat floating))obliqueness;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^obliqueness)(CGFloat obliqueness);
 
 /**
  NSExpansionAttributeName, default 0: no expansion
  */
-- (AXAttributedStringChain *(^)(CGFloat floating))expansion;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^expansion)(CGFloat expansion);
 
 /**
  NSWritingDirectionAttributeName
  */
-- (AXAttributedStringChain *(^)(NSArray<NSNumber *> *options))writingDirection;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^writingDirection)(NSArray<NSNumber *> *options);
 
 /**
  * NSVerticalGlyphFormAttributeName, 0 means horizontal text. 1 indicates vertical text.
  * Currently on iOS, it's always horizontal.  The behavior for any other value is undefined.
  */
-- (AXAttributedStringChain *(^)(NSInteger integer))verticalGlyphForm;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^verticalGlyphForm)(NSInteger integer);
 
 /**
 Set-Up segment attribute string, pass a text and text type, return self.

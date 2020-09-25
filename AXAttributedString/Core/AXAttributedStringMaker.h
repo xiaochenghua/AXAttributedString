@@ -15,14 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AXAttributedStringMaker : NSObject
 
 /**
- For the given text
+ For the given string
  */
-- (AXAttributedStringChain *(^)(NSString *text))text;
+ @property (nonatomic, copy, readonly) AXAttributedStringChain *(^text)(NSString *string);
 
 /**
- For the given htmlText
+ For the given html string
  */
-- (AXAttributedStringChain *(^)(NSString *text))htmlText;
+@property (nonatomic, copy, readonly) AXAttributedStringChain *(^htmlText)(NSString *string);
 
 /**
  Splice and return the Sub-AttributedString

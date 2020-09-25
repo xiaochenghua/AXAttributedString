@@ -24,7 +24,7 @@
 /**
  List of sub attribute strings.
  */
-@property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *mass;
+@property (nonatomic, strong) NSMutableArray<NSMutableAttributedString *> *segmentAttributedStrings;
 
 /**
 keys
@@ -56,8 +56,8 @@ keys
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))systemFontSize {
-    return ^id(CGFloat floating) {
-        return [self addAttribute:NSFontAttributeName object:[UIFont systemFontOfSize:floating]];
+    return ^id(CGFloat fontSize) {
+        return [self addAttribute:NSFontAttributeName object:[UIFont systemFontOfSize:fontSize]];
     };
 }
 
@@ -110,8 +110,8 @@ keys
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSTextAttachment * _Nonnull))attachment {
-    return ^id(NSTextAttachment *textAttachment) {
-        return [self addAttribute:NSAttachmentAttributeName object:textAttachment];
+    return ^id(NSTextAttachment *attachment) {
+        return [self addAttribute:NSAttachmentAttributeName object:attachment];
     };
 }
 
@@ -135,14 +135,14 @@ keys
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))kern {
-    return ^id(CGFloat floating) {
-        return [self addAttribute:NSKernAttributeName object:@(floating)];
+    return ^id(CGFloat kern) {
+        return [self addAttribute:NSKernAttributeName object:@(kern)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(NSShadow * _Nonnull))shadow {
-    return ^id(NSShadow *sd) {
-        return [self addAttribute:NSShadowAttributeName object:sd];
+    return ^id(NSShadow *shadow) {
+        return [self addAttribute:NSShadowAttributeName object:shadow];
     };
 }
 
@@ -157,14 +157,14 @@ keys
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))obliqueness {
-    return ^id(CGFloat floating) {
-        return [self addAttribute:NSObliquenessAttributeName object:@(floating)];
+    return ^id(CGFloat obliqueness) {
+        return [self addAttribute:NSObliquenessAttributeName object:@(obliqueness)];
     };
 }
 
 - (AXAttributedStringChain * _Nonnull (^)(CGFloat))expansion {
-    return ^id(CGFloat floating) {
-        return [self addAttribute:NSExpansionAttributeName object:@(floating)];
+    return ^id(CGFloat expansion) {
+        return [self addAttribute:NSExpansionAttributeName object:@(expansion)];
     };
 }
 
@@ -211,22 +211,22 @@ keys
     }
     
     self.segmentAttributedString = mas;
-    [self.mass addObject:mas];
-    self.segmentIndex = self.mass.count - 1;
+    [self.segmentAttributedStrings addObject:mas];
+    self.segmentIndex = self.segmentAttributedStrings.count - 1;
     return self;
 }
 
 #pragma mark - getter
 
-- (NSMutableArray<NSMutableAttributedString *> *)mass {
-    if (!_mass) {
-        _mass = [NSMutableArray array];
+- (NSMutableArray<NSMutableAttributedString *> *)segmentAttributedStrings {
+    if (!_segmentAttributedStrings) {
+        _segmentAttributedStrings = [NSMutableArray array];
     }
-    return _mass;
+    return _segmentAttributedStrings;
 }
 
 - (NSArray<NSAttributedString *> *)attributedStrings {
-    return self.mass.copy;
+    return self.segmentAttributedStrings.copy;
 }
 
 - (NSMutableArray *)keys {

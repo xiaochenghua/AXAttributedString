@@ -29,8 +29,8 @@ typedef AXAttributedStringChain *(^SegmentAttributedStringChainBlock)(NSString *
         __weak typeof(self) weakSelf = self;
         _segmentAttributedStringSetUpBlock = ^SegmentAttributedStringChainBlock(AXAttributedStringTextType type) {
             return ^AXAttributedStringChain *(NSString *text) {
-                __strong typeof(self) self = weakSelf;
-                NSAssert([text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length, @"The formatted-text's length cannot be 0.");
+                __strong typeof(weakSelf) self = weakSelf;
+                NSAssert(text.length, @"The text's length cannot be ZERO.");
                 return [self.chain setUpSegmentAttributedStringWithText:text type:type];
             };
         };
@@ -40,13 +40,13 @@ typedef AXAttributedStringChain *(^SegmentAttributedStringChainBlock)(NSString *
 
 #pragma mark - private methods
 
-- (AXAttributedStringChain * (^)(NSString *))text {
-    NSAssert(self.segmentAttributedStringSetUpBlock, @"Block maybe is nil.");
+- (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))text {
+    NSAssert(self.segmentAttributedStringSetUpBlock, @"segmentAttributedStringSetUpBlock is nil.");
     return self.segmentAttributedStringSetUpBlock(AXAttributedStringTextTypeNormal);
 }
 
-- (AXAttributedStringChain * (^)(NSString *))htmlText {
-    NSAssert(self.segmentAttributedStringSetUpBlock, @"Block maybe is nil.");
+- (AXAttributedStringChain * _Nonnull (^)(NSString * _Nonnull))htmlText {
+    NSAssert(self.segmentAttributedStringSetUpBlock, @"segmentAttributedStringSetUpBlock is nil.");
     return self.segmentAttributedStringSetUpBlock(AXAttributedStringTextTypeHTML);
 }
 
