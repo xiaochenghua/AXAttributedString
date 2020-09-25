@@ -9,10 +9,9 @@
 Pod::Spec.new do |s|
 
   s.name             = "AXAttributedString"
-  s.version          = "0.2.4"
+  s.version          = "0.2.5"
   s.summary          = "An easier attribute text creator, use chain-syntax."
   s.homepage         = "https://github.com/arnoldxiao/AXAttributedString"
-  s.screenshots      = "https://github.com/arnoldxiao/AXAttributedString/blob/master/Code_Example%402x.png", "https://github.com/arnoldxiao/AXAttributedString/blob/master/UI_Screenshot_iPhoneSE%402x.png"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = { "arnoldxiao" => "arnoldxiao@163.com" }
   s.social_media_url = "https://weibo.com/arnoldxiao"
@@ -22,16 +21,13 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.source                = { :git => "https://github.com/arnoldxiao/AXAttributedString.git", :tag => "#{s.version}" }
 
-  s.public_header_files   = "AXAttributedString/Core/*.h"
-  s.source_files          = "AXAttributedString/Core/*.{h,m}"
-
   s.subspec 'Core' do |c|
     c.public_header_files = "AXAttributedString/Core/*.h"
     c.source_files = "AXAttributedString/Core/*.{h,m}"
     c.frameworks = "Foundation", "CoreGraphics"
   end
 
-  s.subspec 'UI' do |u|
+  s.subspec 'UIKit' do |u|
     u.public_header_files = "AXAttributedString/UI/*.h"
     u.source_files = "AXAttributedString/UI/*.{h,m}"
     u.frameworks = "UIKit"
