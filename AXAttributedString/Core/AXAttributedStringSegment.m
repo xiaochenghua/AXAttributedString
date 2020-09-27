@@ -11,15 +11,40 @@
 
 @interface AXAttributedStringSegment ()
 
+/**
+ 当前对象的富文本
+ */
 @property (nonatomic, strong) NSMutableAttributedString *mutableAttributedString;
 
+/**
+ 缓存已经设置过的属性key，避免重复设置
+ */
 @property (nonatomic, strong) NSMutableArray<NSAttributedStringKey> *cachedKeys;
 
-@property (nonatomic, copy) NSArray<AXAttributedStringSegment *> *children;
-
+/**
+ 父节点
+ */
 @property (nonatomic, strong) AXAttributedStringSegment *father;
 
+/**
+ 子节点
+ */
+@property (nonatomic, copy) NSArray<AXAttributedStringSegment *> *children;
+
+/**
+ 保存绘图风格
+ */
+@property (nonatomic, strong) NSMutableParagraphStyle *mutableParagraphStyle;
+
 @end
+
+#define AXIgnorePerformSelectorLeakWarning(Code) \
+do { \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+    Code; \
+    _Pragma("clang diagnostic pop") \
+} while (0)
 
 @implementation AXAttributedStringSegment
 
@@ -212,16 +237,67 @@
     };
 }
 
+- (AXAttributedStringSegmentFloatBlock)lineSpacing {
+    return ^AXAttributedStringSegment *(CGFloat spacing) {
+        return [self addParagraphStyleAttributeSelector:@selector(setLineSpacing:) object:@(spacing)];
+    };
+}
+
+- (AXAttributedStringSegmentAlignmentBlock)alignment {
+    return ^AXAttributedStringSegment *(NSTextAlignment alignment) {
+        return [self addParagraphStyleAttributeSelector:@selector(setAlignment:) object:@(alignment)];
+    };
+}
+
 #pragma mark - private metheds
 
 /// 给当前对象添加属性
 /// @param key NSAttributedStringKey
 /// @param value value
 - (AXAttributedStringSegment *)addAttribute:(NSAttributedStringKey)key object:(id)value {
-    NSAssert(![self.cachedKeys containsObject:key], @"Duplicate attribute key: %@.", key);
-    [self.cachedKeys addObject:key];
+    NSAssert(![self.cachedKeys containsObject:key], @"Repeated attribute key: %@.", key);
+    if (![key isEqualToString:NSParagraphStyleAttributeName]) {
+        [self.cachedKeys addObject:key];
+    }
     [self.mutableAttributedString addAttribute:key value:value range:NSMakeRange(0, self.attributedString.length)];
     return self;
+}
+
+- (AXAttributedStringSegment *)addParagraphStyleAttributeSelector:(SEL)sel object:(id)obj {
+    id attribute = [self.mutableAttributedString attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil];
+//    NSNumber *argument = nil;
+    
+//    if ([NSStringFromSelector(sel) isEqualToString:NSStringFromSelector(@selector(setAlignment:))]) {
+//        argument =
+//    }
+    
+    NSUInteger alignment = 1;
+    
+    if (attribute) {
+        NSMutableParagraphStyle *style = (NSMutableParagraphStyle *)attribute;
+//        AXIgnorePerformSelectorLeakWarning([style performSelector:sel withObject:value]);
+//        [self.mutableAttributedString removeAttribute:NSParagraphStyleAttributeName range:NSMakeRange(0, self.attributedString.length)];
+//        return [self addAttribute:NSParagraphStyleAttributeName object:style];
+        if ([style respondsToSelector:sel]) {
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[style methodSignatureForSelector:sel]];
+            [invocation setTarget:style];
+            [invocation setSelector:sel];
+            [invocation setArgument:&alignment atIndex:2];
+            [invocation invoke];
+        }
+        [self.mutableAttributedString removeAttribute:NSParagraphStyleAttributeName range:NSMakeRange(0, self.attributedString.length)];
+        return [self addAttribute:NSParagraphStyleAttributeName object:style];
+    }
+    
+    if ([self.mutableParagraphStyle respondsToSelector:sel]) {
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self.mutableParagraphStyle methodSignatureForSelector:sel]];
+        [invocation setTarget:self.mutableParagraphStyle];
+        [invocation setSelector:sel];
+        [invocation setArgument:&alignment atIndex:2];
+        [invocation invoke];
+    }
+//    AXIgnorePerformSelectorLeakWarning([self.mutableParagraphStyle performSelector:sel withObject:obj]);
+    return [self addAttribute:NSParagraphStyleAttributeName object:self.mutableParagraphStyle];
 }
 
 #pragma mark - getter
@@ -235,6 +311,13 @@
         _cachedKeys = [NSMutableArray array];
     }
     return _cachedKeys;
+}
+
+- (NSMutableParagraphStyle *)mutableParagraphStyle {
+    if (!_mutableParagraphStyle) {
+        _mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    }
+    return _mutableParagraphStyle;
 }
 
 @end

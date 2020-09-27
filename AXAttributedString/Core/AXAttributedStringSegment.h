@@ -43,6 +43,7 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentTextAtta
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentShadowBlock         )(NSShadow *shadow);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentOptionsBlock        )(NSArray<NSNumber *> *options);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentChildrenBlock       )(NSArray<AXAttributedStringSegment *> *children);
+typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmentBlock      )(NSTextAlignment alignment);
 
 @interface AXAttributedStringSegment : NSObject
 
@@ -160,6 +161,11 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentChildren
  横竖排版，NSVerticalGlyphFormAttributeName
  */
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock verticalGlyphForm;
+
+
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock lineSpacing;
+//NSTextAlignment alignment
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentAlignmentBlock alignment;
 
 /**
  当前对象的attributedString
