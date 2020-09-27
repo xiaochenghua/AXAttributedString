@@ -8,7 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "AXAttributedStringMaker.h"
+#import "AXAttributedStringMaker.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Build iOS Native rich-text [NSAttributedString] easily.
  */
-//+ (NSAttributedString *)makeAttributedString:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block;
++ (NSAttributedString *)makeAttributedString:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block;
 
 @end
 

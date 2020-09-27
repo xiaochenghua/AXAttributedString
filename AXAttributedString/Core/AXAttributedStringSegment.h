@@ -31,22 +31,21 @@ typedef NS_ENUM(NSUInteger, AXAttributedStringSegmentType) {
     AXAttributedStringSegmentTypeContainer
 };
 
-typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentColorBlock          )(UIColor *color);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentFontBlock           )(UIFont *font);
-typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentFloatBlock          )(CGFloat size);
+typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentColorBlock          )(UIColor *color);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentIntegerBlock        )(NSInteger integer);
-typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentURLBlock            )(NSURL *url);
+typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentFloatBlock          )(CGFloat size);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentStringBlock         )(NSString *string);
+typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentURLBlock            )(NSURL *url);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentUnderlineStyleBlock )(NSUnderlineStyle style);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentParagraphStyleBlock )(NSParagraphStyle *style);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentTextAttachmentBlock )(NSTextAttachment *attachment);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentShadowBlock         )(NSShadow *shadow);
-typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentNumbersBlock        )(NSArray<NSNumber *> *numbers);
+typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentOptionsBlock        )(NSArray<NSNumber *> *options);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentChildrenBlock       )(NSArray<AXAttributedStringSegment *> *children);
 
 @interface AXAttributedStringSegment : NSObject
 
-@property (nonatomic, copy, nullable, readonly) NSAttributedString *                attributedString;
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           textColor;
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           backgroundColor;
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentFontBlock            font;
@@ -68,8 +67,12 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentChildren
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock          effect;
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           obliqueness;
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           expansion;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentNumbersBlock         writingDirection;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentOptionsBlock         writingDirection;
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock         verticalGlyphForm;
+
+@property (nonatomic, copy, readonly) NSAttributedString *                          attributedString;
+@property (nonatomic, copy, readonly) NSArray<AXAttributedStringSegment *> *        children;
+@property (nonatomic, strong, readonly) AXAttributedStringSegment *                 father;
 
 + (instancetype)segmentWithType:(AXAttributedStringSegmentType)type text:(NSString *)text;
 + (instancetype)segmentWithType:(AXAttributedStringSegmentType)type children:(NSArray<AXAttributedStringSegment *> *)children;

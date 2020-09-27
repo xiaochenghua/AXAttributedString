@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 提供给UILabel/UITextField/UITextView使用
  */
-- (void)setAttributedStringUsingBlock:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block;
+- (void)setAttributedTextUsingBlock:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block;
 
 @end
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 提供给UIButton使用
  */
-- (void)setAttributedStringUsingBlock:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block forState:(UIControlState)state;
+- (void)setAttributedTitleUsingBlock:(void(NS_NOESCAPE ^)(AXAttributedStringMaker *make))block forState:(UIControlState)state;
 
 @end
 

@@ -7,9 +7,10 @@
 //
 
 #import "AXSecondViewController.h"
-#import <AXAttributedString/AXAttributedString.h>
+//#import <AXAttributedString/AXAttributedString.h>
 #import <AXAttributedString/UILabel+AXAttributedString.h>
 #import <AXAttributedString/UITextView+AXAttributedString.h>
+#import <AXAttributedString/NSAttributedString+AXAdditional.h>
 
 @interface AXSecondViewController () <UITextViewDelegate>
 @property (nonatomic, strong) UILabel *attributedStringLabel;
@@ -24,13 +25,14 @@
     
     self.title = NSStringFromClass([self class]);
     
-//    [self.view addSubview:self.attributedStringLabel];
-    [self.view addSubview:self.textView];
+    [self.view addSubview:self.attributedStringLabel];
+//    [self.view addSubview:self.textView];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.textView.frame = self.view.bounds;
+//    self.textView.frame = self.view.bounds;
+    self.attributedStringLabel.frame = self.view.bounds;
 }
 
 #pragma mark - <UITextViewDelegate>
@@ -44,18 +46,29 @@
 
 - (UILabel *)attributedStringLabel {
     if (!_attributedStringLabel) {
-        _attributedStringLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 2 * 10, 300)];
+        _attributedStringLabel = [[UILabel alloc] init];
         _attributedStringLabel.backgroundColor = UIColor.yellowColor;
         _attributedStringLabel.numberOfLines = 0;
-        [_attributedStringLabel setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
-//            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-//            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:14]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-//            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(20).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.lightTextColor);
-//            make.text(@"\n");   //  line break
-//            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:30]).baselineOffset(-15);
-//            make.text(@"Overview").foregroundColor(AXColorFromRGB(0xCC00FF)).systemFontSize(30);
-//            //  Not allow formatted(remove the first and last empty) string to be empty
-//            //  make.text(@"");
+        [_attributedStringLabel setAttributedTextUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
+            make.text(@"Test").backgroundColor([UIColor whiteColor]).textColor([UIColor grayColor]).systemFontSize(20);
+            make.text(@"\n");
+            make.children(@[
+                            make.text(@"Child1").textColor([UIColor blackColor]).systemFontSize(45),
+                            make.text(@" "),
+                            make.text(@"Child2").textColor([UIColor redColor]).systemFontSize(30)
+                          ]).backgroundColor([UIColor lightGrayColor]).strikethroughStyle(NSUnderlineStyleSingle|NSUnderlineStylePatternSolid).strikethroughColor([UIColor grayColor]);
+            make.text(@"\n");
+            make.text(@"End").backgroundColor([UIColor blueColor]).textColor([UIColor whiteColor]).systemFontSize(20);
+            make.text(@"\n");
+            make.text(@"Test").backgroundColor([UIColor whiteColor]).textColor([UIColor grayColor]).systemFontSize(20);
+            make.text(@"\n");
+            make.children(@[
+                            make.text(@"Child1").textColor([UIColor blackColor]).systemFontSize(45),
+                            make.text(@" "),
+                            make.text(@"Child2").textColor([UIColor redColor]).systemFontSize(30)
+                          ]).backgroundColor([UIColor lightGrayColor]).strikethroughStyle(NSUnderlineStyleSingle|NSUnderlineStylePatternSolid).strikethroughColor([UIColor grayColor]);
+            make.text(@"\n");
+            make.text(@"End").backgroundColor([UIColor blueColor]).textColor([UIColor whiteColor]).systemFontSize(20);
         }];
     }
     return _attributedStringLabel;
@@ -68,34 +81,15 @@
         _textView.editable = NO;
         _textView.dataDetectorTypes = UIDataDetectorTypeLink;
         _textView.delegate = self;
-        [_textView setAttributedStringUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
-//            make.htmlText(@"a<br>b").systemFontSize(36).foregroundColor(UIColor.redColor);
-//            make.text(@"\n");
-//            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-//            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-//            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
-//            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
-//            make.text(@"Overview").foregroundColor(AXColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://github.com/arnoldxiao/");
-//            make.text(@"\n\n\n");
-//            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-//            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-//            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
-//            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
-//            make.text(@"Overview").foregroundColor(AXColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://github.com/arnoldxiao/");
-//            make.text(@"\n\n\n");
-//            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-//            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-//            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
-//            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
-//            make.text(@"Overview").foregroundColor(AXColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://github.com/arnoldxiao/");
-//            make.text(@"\n\n\n");
-//            make.text(@"Views and Controls").foregroundColor(UIColor.blackColor).font([UIFont systemFontOfSize:14]).underlineStyle(NSUnderlineStyleSingle);
-//            make.text(@"Present your content onscreen").font([UIFont systemFontOfSize:12]).foregroundColor(UIColor.blueColor).backgroundColor(UIColor.lightGrayColor);
-//            make.text(@"and define the interactions allowed").foregroundColor(UIColor.orangeColor).systemFontSize(18).strikethroughStyle(NSUnderlineStyleThick).strikethroughColor(UIColor.orangeColor);
-//            make.text(@"with that content.").foregroundColor(UIColor.brownColor).font([UIFont boldSystemFontOfSize:16]).baselineOffset(0);
-//            make.text(@"Overview").foregroundColor(AXColorFromRGB(0xCC00FF)).systemFontSize(22).linkString(@"https://github.com/arnoldxiao/");
-            
-            
+        
+        [_textView setAttributedTextUsingBlock:^(AXAttributedStringMaker * _Nonnull make) {
+            make.text(@"Test").backgroundColor([UIColor whiteColor]).textColor([UIColor grayColor]).systemFontSize(20);
+//            make.children(@[
+//                make.text(@"child1").textColor([UIColor blackColor]).systemFontSize(15),
+//                make.text(@"\n"),
+//                make.text(@"child2").textColor([UIColor blackColor]).systemFontSize(15)
+//            ]);
+//            make.text(@"End").backgroundColor([UIColor blueColor]).textColor([UIColor whiteColor]).systemFontSize(20);
         }];
     }
     return _textView;
