@@ -13,8 +13,10 @@ typedef AXAttributedStringSegment *(^AXAttributedStringSegmentBlock)(id _Nonnull
 
 @interface AXAttributedStringMaker ()
 
+/// 生成segment的block，执行后才会生成
 @property (nonatomic, copy) AXAttributedStringSegmentBlock(^segment)(AXAttributedStringSegmentType type);
 
+/// 平铺后所有的segment集合，包括父节点和子节点
 @property (nonatomic, strong) NSMutableArray<AXAttributedStringSegment *> *segments;
 
 @end
@@ -29,6 +31,7 @@ typedef AXAttributedStringSegment *(^AXAttributedStringSegmentBlock)(id _Nonnull
     // 遍历segments数组
     [self.segments enumerateObjectsUsingBlock:^(AXAttributedStringSegment * _Nonnull segment, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!segment.father && segment.attributedString) {
+            // segment没有父节点，才需要处理拼接，因为作为子节点，已经在父节点内部已经处理过了。
             [mutableAttributedString appendAttributedString:segment.attributedString];
         }
     }];
@@ -60,14 +63,18 @@ typedef AXAttributedStringSegment *(^AXAttributedStringSegmentBlock)(id _Nonnull
                 switch (type) {
                     case AXAttributedStringSegmentTypeNormal:
                     case AXAttributedStringSegmentTypeHTML: {
-                        NSAssert([object isKindOfClass:[NSString class]] && ((NSString *)object).length, @"The text's length cannot be ZERO.");
+                        NSAssert([object isKindOfClass:[NSString class]], @"The object's class kind must be NSString.");
+                        NSAssert(((NSString *)object).length, @"The text's length cannot be ZERO.");
                         segment = [AXAttributedStringSegment segmentWithType:type text:(NSString *)object];
                         break;
                     }
                     case AXAttributedStringSegmentTypeContainer: {
-                        NSAssert([object isKindOfClass:[NSArray class]] && ((NSArray *)object).count, @"The children's count cannot be ZERO.");
+                        NSAssert([object isKindOfClass:[NSArray class]], @"The object's class kind must be NSArray.");
+                        NSArray *children = (NSArray *)object;
+                        NSAssert(children.count, @"The children's count cannot be ZERO.");
+                        // 检查所有元素类型
                         __block BOOL invalid = NO;
-                        [(NSArray *)object enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        [children enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                             if (![obj isKindOfClass:[AXAttributedStringSegment class]]) {
                                 invalid = YES;
                                 *stop = YES;
@@ -75,7 +82,7 @@ typedef AXAttributedStringSegment *(^AXAttributedStringSegmentBlock)(id _Nonnull
                             }
                         }];
                         NSAssert(!invalid, @"The children's object type is not AXAttributedStringSegment.");
-                        segment = [AXAttributedStringSegment segmentWithType:type children:(NSArray<AXAttributedStringSegment *> *)object];
+                        segment = [AXAttributedStringSegment segmentWithType:type children:children];
                         break;
                     }
                 }

@@ -8,13 +8,11 @@
 //
 
 #import "UILabel+AXAttributedString.h"
-//#import "AXAttributedString.h"
 #import "NSAttributedString+AXAdditional.h"
 
 @implementation UILabel (AXAttributedString)
 
 - (void)setAttributedTextUsingBlock:(void (NS_NOESCAPE ^)(AXAttributedStringMaker * _Nonnull))block {
-//    self.attributedText = [AXAttributedString makeAttributedString:block];
     self.attributedText = [NSAttributedString ax_attributedStringUsingBlock:block];
 }
 

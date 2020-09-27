@@ -23,6 +23,10 @@
 
 @implementation AXAttributedStringSegment
 
+/// 生成AXAttributedStringSegment对象
+/// @param type 类型
+/// @param text 文本
+/// @param children 子节点
 + (instancetype)segmentWithType:(AXAttributedStringSegmentType)type text:(NSString *)text children:(NSArray<AXAttributedStringSegment *> *)children {
     AXAttributedStringSegment *segment = [[AXAttributedStringSegment alloc] init];
     
@@ -210,6 +214,9 @@
 
 #pragma mark - private metheds
 
+/// 给当前对象添加属性
+/// @param key NSAttributedStringKey
+/// @param value value
 - (AXAttributedStringSegment *)addAttribute:(NSAttributedStringKey)key object:(id)value {
     NSAssert(![self.cachedKeys containsObject:key], @"Duplicate attribute key: %@.", key);
     [self.cachedKeys addObject:key];

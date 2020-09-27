@@ -46,35 +46,144 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentChildren
 
 @interface AXAttributedStringSegment : NSObject
 
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           textColor;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           backgroundColor;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFontBlock            font;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           systemFontSize;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentUnderlineStyleBlock  underlineStyle;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           underlineColor;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           baselineOffset;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentUnderlineStyleBlock  strikethroughStyle;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           strikethroughColor;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentParagraphStyleBlock  paragraphStyle;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock           strokeColor;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           strokeWidth;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentTextAttachmentBlock  attachment;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentURLBlock             linkUrl;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock          linkString;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock         ligature;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           kern;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentShadowBlock          shadow;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock          effect;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           obliqueness;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock           expansion;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentOptionsBlock         writingDirection;
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock         verticalGlyphForm;
+/**
+ 文字颜色，NSForegroundColorAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock textColor;
 
-@property (nonatomic, copy, readonly) NSAttributedString *                          attributedString;
-@property (nonatomic, copy, readonly) NSArray<AXAttributedStringSegment *> *        children;
-@property (nonatomic, strong, readonly) AXAttributedStringSegment *                 father;
+/**
+ 背景色，NSBackgroundColorAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock backgroundColor;
 
+/**
+ 字体，NSFontAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFontBlock font;
+
+/**
+ 系统字体大小，NSFontAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock systemFontSize;
+
+/**
+ 下划线样式，NSUnderlineStyleAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentUnderlineStyleBlock underlineStyle;
+
+/**
+ 下划线颜色，NSUnderlineColorAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock underlineColor;
+
+/**
+ 基线偏移量，NSBaselineOffsetAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock baselineOffset;
+
+/**
+ 删除线样式，NSStrikethroughStyleAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentUnderlineStyleBlock strikethroughStyle;
+
+/**
+ 删除线颜色，NSStrikethroughColorAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock strikethroughColor;
+
+/**
+ 绘图风格，居中、换行、间距等，NSParagraphStyleAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentParagraphStyleBlock paragraphStyle;
+
+/**
+ 描边颜色，NSStrokeColorAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentColorBlock strokeColor;
+
+/**
+ 描边宽度，NSStrokeWidthAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock strokeWidth;
+
+/**
+ NSTextAttachment附属对象，NSAttachmentAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentTextAttachmentBlock attachment;
+
+/**
+ 链接URL，NSLinkAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentURLBlock linkUrl;
+
+/**
+ 链接字符串，NSLinkAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock linkString;
+
+/**
+ 字符连体，NSLigatureAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock ligature;
+
+/**
+ 字符间隔，NSKernAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock kern;
+
+/**
+ 阴影，NSShadowAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentShadowBlock shadow;
+
+/**
+ 文字效果，目前只支持NSTextEffectLetterpressStyle，NSTextEffectAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock effect;
+
+/**
+ 字体倾斜，NSObliquenessAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock obliqueness;
+
+/**
+ 字体扁平化，NSExpansionAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock expansion;
+
+/**
+ 文字书写方向，NSWritingDirectionAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentOptionsBlock writingDirection;
+
+/**
+ 横竖排版，NSVerticalGlyphFormAttributeName
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock verticalGlyphForm;
+
+/**
+ 当前对象的attributedString
+ */
+@property (nonatomic, copy, readonly) NSAttributedString *attributedString;
+
+/**
+ 子节点集合
+ */
+@property (nonatomic, copy, readonly) NSArray<AXAttributedStringSegment *> *children;
+
+/**
+ 父节点
+ */
+@property (nonatomic, strong, readonly) AXAttributedStringSegment *father;
+
+/**
+ 根据type和text生成segment对象
+ */
 + (instancetype)segmentWithType:(AXAttributedStringSegmentType)type text:(NSString *)text;
+
+/**
+ 根据type和children生成segment对象
+ */
 + (instancetype)segmentWithType:(AXAttributedStringSegmentType)type children:(NSArray<AXAttributedStringSegment *> *)children;
 
 @end

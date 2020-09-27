@@ -14,14 +14,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AXAttributedStringMaker : NSObject
 
-@property (nonatomic, copy, readonly) AXAttributedStringSegment *(^text)(NSString *text);
-@property (nonatomic, copy, readonly) AXAttributedStringSegment *(^htmlText)(NSString *htmlText);
-@property (nonatomic, copy, readonly) AXAttributedStringSegment *(^children)(NSArray<AXAttributedStringSegment *> *children);
+/**
+ 常规字符串
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock text;
 
-//@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock      text;
-//@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock      htmlText;
-//@property (nonatomic, copy, readonly) AXAttributedStringSegmentChildrenBlock    children;
+/**
+ html字符串
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentStringBlock htmlText;
 
+/**
+ children容器
+ */
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentChildrenBlock children;
+
+/**
+ 组装所有segment对象
+ */
 - (NSAttributedString *)install;
 
 @end

@@ -8,13 +8,11 @@
 //
 
 #import "UIButton+AXAttributedString.h"
-//#import "AXAttributedString.h"
 #import "NSAttributedString+AXAdditional.h"
 
 @implementation UIButton (AXAttributedString)
 
 - (void)setAttributedTitleUsingBlock:(void (NS_NOESCAPE ^)(AXAttributedStringMaker * _Nonnull))block forState:(UIControlState)state {
-//    [self setAttributedTitle:[AXAttributedString makeAttributedString:block] forState:state];
     [self setAttributedTitle:[NSAttributedString ax_attributedStringUsingBlock:block] forState:state];
 }
 
