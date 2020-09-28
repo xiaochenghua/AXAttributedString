@@ -2,7 +2,9 @@
 //  AXAttributedStringSegment+ParagraphStyle.h
 //  AXAttributedString
 //
-//  Created by chenghua.xiao on 2020/9/28.
+//  Created by xiaochenghua on 2020/9/28.
+//  Email: arnoldxiao@163.com
+//  Copyright © 2020 xiaochenghua. All rights reserved.
 //
 
 #import "AXAttributedStringSegment.h"

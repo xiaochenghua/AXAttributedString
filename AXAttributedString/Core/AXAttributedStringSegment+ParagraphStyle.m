@@ -2,37 +2,14 @@
 //  AXAttributedStringSegment+ParagraphStyle.m
 //  AXAttributedString
 //
-//  Created by chenghua.xiao on 2020/9/28.
+//  Created by xiaochenghua on 2020/9/28.
+//  Email: arnoldxiao@163.com
+//  Copyright © 2020 xiaochenghua. All rights reserved.
 //
 
 #import "AXAttributedStringSegment+ParagraphStyle.h"
+#import "AXAttributedStringSegment+ParameterTransfer.h"
 #import <objc/runtime.h>
-
-/**
- ParagraphStyle值类型
- */
-typedef NS_ENUM(NSUInteger, AXAttributedStringParagraphValueType) {
-    
-    /**
-     CGFloat, double
-     */
-    AXAttributedStringParagraphValueTypeDouble,
-    
-    /**
-     float
-     */
-    AXAttributedStringParagraphValueTypeFloat,
-    
-    /**
-     Integer, Enum
-     */
-    AXAttributedStringParagraphValueTypeInteger,
-    
-    /**
-     Object
-     */
-    AXAttributedStringParagraphValueTypeObject
-};
 
 @interface AXAttributedStringSegment ()
 
@@ -47,147 +24,102 @@ typedef NS_ENUM(NSUInteger, AXAttributedStringParagraphValueType) {
 
 - (AXAttributedStringSegmentDoubleBlock)lineSpacing {
     return ^AXAttributedStringSegment *(CGFloat spacing) {
-        return [self addParagraphStyleAttributeSelector:@selector(setLineSpacing:) object:@(spacing) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setLineSpacing:) value:@(spacing) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)paragraphSpacing {
     return ^AXAttributedStringSegment *(CGFloat spacing) {
-        return [self addParagraphStyleAttributeSelector:@selector(setParagraphSpacing:) object:@(spacing) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setParagraphSpacing:) value:@(spacing) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentAlignmentBlock)alignment {
     return ^AXAttributedStringSegment *(NSTextAlignment alignment) {
-        return [self addParagraphStyleAttributeSelector:@selector(setAlignment:) object:@(alignment) type:AXAttributedStringParagraphValueTypeInteger];
+        return [self addParagraphStyleAttributeSelector:@selector(setAlignment:) value:@(alignment) type:AXAttributedStringSegmentParameterValueTypeInteger];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)paragraphSpacingBefore {
     return ^AXAttributedStringSegment *(CGFloat spacing) {
-        return [self addParagraphStyleAttributeSelector:@selector(setParagraphSpacingBefore:) object:@(spacing) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setParagraphSpacingBefore:) value:@(spacing) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)firstLineHeadIndent {
     return ^AXAttributedStringSegment *(CGFloat indent) {
-        return [self addParagraphStyleAttributeSelector:@selector(setFirstLineHeadIndent:) object:@(indent) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setFirstLineHeadIndent:) value:@(indent) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)headIndent {
     return ^AXAttributedStringSegment *(CGFloat indent) {
-        return [self addParagraphStyleAttributeSelector:@selector(setHeadIndent:) object:@(indent) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setHeadIndent:) value:@(indent) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)tailIndent {
     return ^AXAttributedStringSegment *(CGFloat indent) {
-        return [self addParagraphStyleAttributeSelector:@selector(setTailIndent:) object:@(indent) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setTailIndent:) value:@(indent) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentLineBreakBlock)lineBreakMode {
     return ^AXAttributedStringSegment *(NSLineBreakMode lineBreakMode) {
-        return [self addParagraphStyleAttributeSelector:@selector(setLineBreakMode:) object:@(lineBreakMode) type:AXAttributedStringParagraphValueTypeInteger];
+        return [self addParagraphStyleAttributeSelector:@selector(setLineBreakMode:) value:@(lineBreakMode) type:AXAttributedStringSegmentParameterValueTypeInteger];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)minimumLineHeight {
     return ^AXAttributedStringSegment *(CGFloat height) {
-        return [self addParagraphStyleAttributeSelector:@selector(setMinimumLineHeight:) object:@(height) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setMinimumLineHeight:) value:@(height) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)maximumLineHeight {
     return ^AXAttributedStringSegment *(CGFloat height) {
-        return [self addParagraphStyleAttributeSelector:@selector(setMaximumLineHeight:) object:@(height) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setMaximumLineHeight:) value:@(height) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentWritingDirectionBlock)baseWritingDirection {
     return ^AXAttributedStringSegment *(NSWritingDirection baseWritingDirection) {
-        return [self addParagraphStyleAttributeSelector:@selector(setBaseWritingDirection:) object:@(baseWritingDirection) type:AXAttributedStringParagraphValueTypeInteger];
+        return [self addParagraphStyleAttributeSelector:@selector(setBaseWritingDirection:) value:@(baseWritingDirection) type:AXAttributedStringSegmentParameterValueTypeInteger];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)lineHeightMultiple {
     return ^AXAttributedStringSegment *(CGFloat multiple) {
-        return [self addParagraphStyleAttributeSelector:@selector(setLineHeightMultiple:) object:@(multiple) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setLineHeightMultiple:) value:@(multiple) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentFloatBlock)hyphenationFactor {
     return ^AXAttributedStringSegment *(float hyphenationFactor) {
-        return [self addParagraphStyleAttributeSelector:@selector(setHyphenationFactor:) object:@(hyphenationFactor) type:AXAttributedStringParagraphValueTypeFloat];
+        return [self addParagraphStyleAttributeSelector:@selector(setHyphenationFactor:) value:@(hyphenationFactor) type:AXAttributedStringSegmentParameterValueTypeFloat];
     };
 }
 
 - (AXAttributedStringSegmentTextTabsBlock)tabStops {
     return ^AXAttributedStringSegment *(NSArray<NSTextTab *> *tabStops) {
-        return [self addParagraphStyleAttributeSelector:@selector(setTabStops:) object:tabStops type:AXAttributedStringParagraphValueTypeObject];
+        return [self addParagraphStyleAttributeSelector:@selector(setTabStops:) value:tabStops type:AXAttributedStringSegmentParameterValueTypeObject];
     };
 }
 
 - (AXAttributedStringSegmentDoubleBlock)defaultTabInterval {
     return ^AXAttributedStringSegment *(CGFloat tabInterval) {
-        return [self addParagraphStyleAttributeSelector:@selector(setDefaultTabInterval:) object:@(tabInterval) type:AXAttributedStringParagraphValueTypeDouble];
+        return [self addParagraphStyleAttributeSelector:@selector(setDefaultTabInterval:) value:@(tabInterval) type:AXAttributedStringSegmentParameterValueTypeDouble];
     };
 }
 
 - (AXAttributedStringSegmentBoolBlock)allowsDefaultTighteningForTruncation {
     return ^AXAttributedStringSegment *(BOOL boolean) {
-        return [self addParagraphStyleAttributeSelector:@selector(setAllowsDefaultTighteningForTruncation:) object:@(boolean) type:AXAttributedStringParagraphValueTypeInteger];
+        return [self addParagraphStyleAttributeSelector:@selector(setAllowsDefaultTighteningForTruncation:) value:@(boolean) type:AXAttributedStringSegmentParameterValueTypeInteger];
     };
 }
 
-- (AXAttributedStringSegment *)addParagraphStyleAttributeSelector:(SEL)sel object:(id)obj type:(AXAttributedStringParagraphValueType)type {
-    void *argument = nil;
-    
-    BOOL isNumber = [obj isKindOfClass:[NSNumber class]];
-    BOOL isString = [obj isKindOfClass:[NSString class]];
-    
-    switch (type) {
-        case AXAttributedStringParagraphValueTypeDouble: {
-            CGFloat value = isNumber ? ((NSNumber *)obj).doubleValue : isString ? ((NSString *)obj).doubleValue : 0.0;
-            argument = &value;
-            break;
-        }
-        case AXAttributedStringParagraphValueTypeFloat: {
-            float value = isNumber ? ((NSNumber *)obj).floatValue : isString ? ((NSString *)obj).floatValue : 0.0f;
-            argument = &value;
-            break;
-        }
-        case AXAttributedStringParagraphValueTypeInteger: {
-            NSInteger value = isNumber ? ((NSNumber *)obj).integerValue : isString ? ((NSString *)obj).integerValue : 0;
-            argument = &value;
-            break;
-        }
-        case AXAttributedStringParagraphValueTypeObject: {
-            argument = &obj;
-            break;
-        }
-    }
-    
-    id attribute = [self.attributedString attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil];
-    if (attribute) {
-        return [self resetParagraphStyleWithObject:(NSMutableParagraphStyle *)attribute selector:sel value:argument];
-    }
-    return [self resetParagraphStyleWithObject:self.mutableParagraphStyle selector:sel value:argument];
-}
-
-- (AXAttributedStringSegment *)resetParagraphStyleWithObject:(NSParagraphStyle *)style selector:(SEL)sel value:(void *)value {
-    [self invokeTarget:style selector:sel argument:value];
-    return [self addAttribute:NSParagraphStyleAttributeName object:style];
-}
-
-- (void)invokeTarget:(id)target selector:(SEL)sel argument:(void *)argument {
-    if (![target respondsToSelector:sel]) return;
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[target methodSignatureForSelector:sel]];
-    [invocation setTarget:target];
-    [invocation setSelector:sel];
-    [invocation setArgument:argument atIndex:2];
-    [invocation invoke];
+- (AXAttributedStringSegment *)addParagraphStyleAttributeSelector:(SEL)sel value:(id)value type:(AXAttributedStringSegmentParameterValueType)type {
+    return [self addAttributeValueWithKey:NSParagraphStyleAttributeName object:self.mutableParagraphStyle selector:sel value:value type:type];
 }
 
 - (void)setMutableParagraphStyle:(NSMutableParagraphStyle *)mutableParagraphStyle {
