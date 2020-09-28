@@ -54,13 +54,17 @@
             make.text(@"\n");
             make.children(@[
                             make.text(@"Child1").textColor([UIColor blackColor]).systemFontSize(20),
+                            make.text(@"\n"),
                             make.text(@"Child2").textColor([UIColor redColor]).systemFontSize(20),
                             make.children(@[
+                                make.text(@"\n"),
                                 make.text(@"Child3").textColor([UIColor orangeColor]).systemFontSize(20),
+                                make.text(@"\n"),
                                 make.text(@"Child4").textColor([UIColor greenColor]).systemFontSize(20),
+                                make.text(@"\n"),
                                           ]),
                             make.text(@"Child5").textColor([UIColor greenColor]).systemFontSize(20)
-                          ]).backgroundColor([UIColor lightGrayColor]).strikethroughStyle(NSUnderlineStyleSingle|NSUnderlineStylePatternSolid).strikethroughColor([UIColor grayColor]).lineSpacing(10).alignment(NSTextAlignmentRight);
+                          ]).backgroundColor([UIColor lightGrayColor]).strikethroughStyle(NSUnderlineStyleSingle|NSUnderlineStylePatternSolid).strikethroughColor([UIColor grayColor]).lineSpacing(0).alignment(NSTextAlignmentLeft).firstLineHeadIndent(100).paragraphSpacingBefore(20);
             make.text(@"\n");
             make.text(@"End").backgroundColor([UIColor blueColor]).textColor([UIColor whiteColor]).systemFontSize(20);
         }];

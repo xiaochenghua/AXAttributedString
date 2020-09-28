@@ -31,20 +31,7 @@
  */
 @property (nonatomic, copy) NSArray<AXAttributedStringSegment *> *children;
 
-/**
- 保存绘图风格
- */
-@property (nonatomic, strong) NSMutableParagraphStyle *mutableParagraphStyle;
-
 @end
-
-#define AXIgnorePerformSelectorLeakWarning(Code) \
-do { \
-    _Pragma("clang diagnostic push") \
-    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
-    Code; \
-    _Pragma("clang diagnostic pop") \
-} while (0)
 
 @implementation AXAttributedStringSegment
 
@@ -113,7 +100,7 @@ do { \
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)systemFontSize {
+- (AXAttributedStringSegmentDoubleBlock)systemFontSize {
     return ^AXAttributedStringSegment *(CGFloat fontSize) {
         return [self addAttribute:NSFontAttributeName object:[UIFont systemFontOfSize:fontSize]];
     };
@@ -131,7 +118,7 @@ do { \
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)baselineOffset {
+- (AXAttributedStringSegmentDoubleBlock)baselineOffset {
     return ^AXAttributedStringSegment *(CGFloat offset) {
         return [self addAttribute:NSBaselineOffsetAttributeName object:@(offset)];
     };
@@ -161,7 +148,7 @@ do { \
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)strokeWidth {
+- (AXAttributedStringSegmentDoubleBlock)strokeWidth {
     return ^AXAttributedStringSegment *(CGFloat width) {
         return [self addAttribute:NSStrokeWidthAttributeName object:@(width)];
     };
@@ -191,7 +178,7 @@ do { \
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)kern {
+- (AXAttributedStringSegmentDoubleBlock)kern {
     return ^AXAttributedStringSegment *(CGFloat kern) {
         return [self addAttribute:NSKernAttributeName object:@(kern)];
     };
@@ -213,13 +200,13 @@ do { \
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)obliqueness {
+- (AXAttributedStringSegmentDoubleBlock)obliqueness {
     return ^AXAttributedStringSegment *(CGFloat obliqueness) {
         return [self addAttribute:NSObliquenessAttributeName object:@(obliqueness)];
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)expansion {
+- (AXAttributedStringSegmentDoubleBlock)expansion {
     return ^AXAttributedStringSegment *(CGFloat expansion) {
         return [self addAttribute:NSExpansionAttributeName object:@(expansion)];
     };
@@ -237,23 +224,8 @@ do { \
     };
 }
 
-- (AXAttributedStringSegmentFloatBlock)lineSpacing {
-    return ^AXAttributedStringSegment *(CGFloat spacing) {
-        return [self addParagraphStyleAttributeSelector:@selector(setLineSpacing:) object:@(spacing)];
-    };
-}
-
-- (AXAttributedStringSegmentAlignmentBlock)alignment {
-    return ^AXAttributedStringSegment *(NSTextAlignment alignment) {
-        return [self addParagraphStyleAttributeSelector:@selector(setAlignment:) object:@(alignment)];
-    };
-}
-
 #pragma mark - private metheds
 
-/// 给当前对象添加属性
-/// @param key NSAttributedStringKey
-/// @param value value
 - (AXAttributedStringSegment *)addAttribute:(NSAttributedStringKey)key object:(id)value {
     NSAssert(![self.cachedKeys containsObject:key], @"Repeated attribute key: %@.", key);
     if (![key isEqualToString:NSParagraphStyleAttributeName]) {
@@ -261,43 +233,6 @@ do { \
     }
     [self.mutableAttributedString addAttribute:key value:value range:NSMakeRange(0, self.attributedString.length)];
     return self;
-}
-
-- (AXAttributedStringSegment *)addParagraphStyleAttributeSelector:(SEL)sel object:(id)obj {
-    id attribute = [self.mutableAttributedString attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil];
-//    NSNumber *argument = nil;
-    
-//    if ([NSStringFromSelector(sel) isEqualToString:NSStringFromSelector(@selector(setAlignment:))]) {
-//        argument =
-//    }
-    
-    NSUInteger alignment = 1;
-    
-    if (attribute) {
-        NSMutableParagraphStyle *style = (NSMutableParagraphStyle *)attribute;
-//        AXIgnorePerformSelectorLeakWarning([style performSelector:sel withObject:value]);
-//        [self.mutableAttributedString removeAttribute:NSParagraphStyleAttributeName range:NSMakeRange(0, self.attributedString.length)];
-//        return [self addAttribute:NSParagraphStyleAttributeName object:style];
-        if ([style respondsToSelector:sel]) {
-            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[style methodSignatureForSelector:sel]];
-            [invocation setTarget:style];
-            [invocation setSelector:sel];
-            [invocation setArgument:&alignment atIndex:2];
-            [invocation invoke];
-        }
-        [self.mutableAttributedString removeAttribute:NSParagraphStyleAttributeName range:NSMakeRange(0, self.attributedString.length)];
-        return [self addAttribute:NSParagraphStyleAttributeName object:style];
-    }
-    
-    if ([self.mutableParagraphStyle respondsToSelector:sel]) {
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self.mutableParagraphStyle methodSignatureForSelector:sel]];
-        [invocation setTarget:self.mutableParagraphStyle];
-        [invocation setSelector:sel];
-        [invocation setArgument:&alignment atIndex:2];
-        [invocation invoke];
-    }
-//    AXIgnorePerformSelectorLeakWarning([self.mutableParagraphStyle performSelector:sel withObject:obj]);
-    return [self addAttribute:NSParagraphStyleAttributeName object:self.mutableParagraphStyle];
 }
 
 #pragma mark - getter
@@ -311,13 +246,6 @@ do { \
         _cachedKeys = [NSMutableArray array];
     }
     return _cachedKeys;
-}
-
-- (NSMutableParagraphStyle *)mutableParagraphStyle {
-    if (!_mutableParagraphStyle) {
-        _mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-    }
-    return _mutableParagraphStyle;
 }
 
 @end

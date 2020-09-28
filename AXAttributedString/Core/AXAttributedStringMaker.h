@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AXAttributedStringSegment.h"
+#import "AXAttributedStringSegment+ParagraphStyle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, AXAttributedStringSegmentType) {
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentFontBlock           )(UIFont *font);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentColorBlock          )(UIColor *color);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentIntegerBlock        )(NSInteger integer);
-typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentFloatBlock          )(CGFloat size);
+typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentDoubleBlock         )(CGFloat size);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentStringBlock         )(NSString *string);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentURLBlock            )(NSURL *url);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentUnderlineStyleBlock )(NSUnderlineStyle style);
@@ -43,7 +43,6 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentTextAtta
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentShadowBlock         )(NSShadow *shadow);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentOptionsBlock        )(NSArray<NSNumber *> *options);
 typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentChildrenBlock       )(NSArray<AXAttributedStringSegment *> *children);
-typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmentBlock      )(NSTextAlignment alignment);
 
 @interface AXAttributedStringSegment : NSObject
 
@@ -65,7 +64,7 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
 /**
  系统字体大小，NSFontAttributeName
  */
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock systemFontSize;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentDoubleBlock systemFontSize;
 
 /**
  下划线样式，NSUnderlineStyleAttributeName
@@ -80,7 +79,7 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
 /**
  基线偏移量，NSBaselineOffsetAttributeName
  */
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock baselineOffset;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentDoubleBlock baselineOffset;
 
 /**
  删除线样式，NSStrikethroughStyleAttributeName
@@ -105,7 +104,7 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
 /**
  描边宽度，NSStrokeWidthAttributeName
  */
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock strokeWidth;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentDoubleBlock strokeWidth;
 
 /**
  NSTextAttachment附属对象，NSAttachmentAttributeName
@@ -130,7 +129,7 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
 /**
  字符间隔，NSKernAttributeName
  */
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock kern;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentDoubleBlock kern;
 
 /**
  阴影，NSShadowAttributeName
@@ -145,12 +144,12 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
 /**
  字体倾斜，NSObliquenessAttributeName
  */
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock obliqueness;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentDoubleBlock obliqueness;
 
 /**
  字体扁平化，NSExpansionAttributeName
  */
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock expansion;
+@property (nonatomic, copy, readonly) AXAttributedStringSegmentDoubleBlock expansion;
 
 /**
  文字书写方向，NSWritingDirectionAttributeName
@@ -161,11 +160,6 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
  横竖排版，NSVerticalGlyphFormAttributeName
  */
 @property (nonatomic, copy, readonly) AXAttributedStringSegmentIntegerBlock verticalGlyphForm;
-
-
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentFloatBlock lineSpacing;
-//NSTextAlignment alignment
-@property (nonatomic, copy, readonly) AXAttributedStringSegmentAlignmentBlock alignment;
 
 /**
  当前对象的attributedString
@@ -191,6 +185,13 @@ typedef AXAttributedStringSegment * _Nonnull (^AXAttributedStringSegmentAlignmen
  根据type和children生成segment对象
  */
 + (instancetype)segmentWithType:(AXAttributedStringSegmentType)type children:(NSArray<AXAttributedStringSegment *> *)children;
+
+/**
+ 给当前对象添加属性
+ @param key NSAttributedStringKey
+ @param value value
+ */
+- (AXAttributedStringSegment *)addAttribute:(NSAttributedStringKey)key object:(id)value;
 
 @end
 
